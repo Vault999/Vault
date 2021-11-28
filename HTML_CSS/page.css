@@ -1,0 +1,130 @@
+/* 단축키
+Ctrl + k + 0 : 전체 영역 닫기
+Ctrl + k + j : 전체 영역 열기
+Ctrl + Shift + [ : 현재 영역 닫기
+Ctrl + Shift + ] : 현재 영역 열기
+Ctrl + g : 숫자 입력 후 엔터 누르면 해당 줄로 이동
+   
+*/
+
+
+/* 웹 페이지 공통 */
+
+body {
+    padding: 0 5.5%;
+    margin: 0;
+}
+
+.header, .headLeft, .headRight {
+    border: 1px solid black;
+    margin: 1.4% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headLeft > div, .headRight > div {
+    border: 1px solid black;
+    margin: 0 2vw;
+}
+
+.main {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pageName {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* Page 1 */
+
+
+
+/* Page 1 and 2 */
+
+.Pg2Category, .MPgranking {
+    border: 1px solid black;
+    width: 21%;  
+}
+
+.Pg2Content, .MPgAd {
+    border: 1px solid black;
+    width: 78%;
+}
+
+.Pg2ContentView, .BoVCategory {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Page 2 */
+.Pg2Category > div {
+    border: 1px solid black;
+    padding: 1.5%;
+}
+
+#Pg2ContentView2{
+    border: 1px solid black;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Page 3 */
+
+.BoVContent {
+    padding: 2% 5%;
+}
+
+
+/* Page 4 */
+
+.ProfiBox {
+    border: 1px solid black;
+    background-color: mediumaquamarine;
+    height: 200px;
+    text-align: center;
+}
+
+.ProfiContent {
+    border: 1px solid black;
+    margin-top: 1%;
+}
+
+/* Page 5 */
+
+.InfluProfiBox {
+    border: 1px solid black;
+    width: 20%;
+    margin: 3%;
+}
+
+.InfluProfiBox div {
+    border: 1px solid black;
+}
+
+.InfluProfCont1, .InfluProfCont2, .InfluProfCont3, .InfluProfCont4{
+    display: flex;
+    justify-content: space-between;
+}
+
+.InfluContent{
+    border: 1px solid black;
+    width: 70%;
+    margin: 3%;
+}
+
+.InfluContCategory{
+    border: 1px solid black;
+    display: flex;
+}
+
+.InfluContCate > div {
+    border: 1px solid black;
+    margin: 0 1%;
+}
+
