@@ -6,7 +6,7 @@ const upload = multer();
 app.use(express.static('HTML'));
 
 app.set('view engine', 'pug'); 
-app.set("views", './HTML');
+app.set("views", './HTML_CSS');
 
 const port = 3000;
 const host = '127.0.0.1';
