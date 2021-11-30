@@ -3,10 +3,10 @@ let app = express();
 const multer = require("multer");
 const upload = multer();
 
-app.use(express.static('HTML'));
+app.use(express.static('html_css'));
 
 app.set('view engine', 'pug'); 
-app.set("views", './HTML_CSS');
+app.set("views", './html_css');
 
 const port = 3000;
 const host = '127.0.0.1';
