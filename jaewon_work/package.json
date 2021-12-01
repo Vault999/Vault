@@ -1,7 +1,6 @@
 {
   "name": "web2-nodejs",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "directories": {
     "lib": "lib"
@@ -30,5 +29,6 @@
     "sanitize-html": "^1.18.2",
     "template": "^0.17.5",
     "url": "^0.11.0"
-  }
+  },
+  "description": ""
 }
