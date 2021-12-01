@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/web-n/Nodejs#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
+    "import": "^0.0.6",
     "internal": "^2.0.27",
+    "loader": "^2.1.1",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
     "qs": "^6.10.1",
@@ -30,5 +33,9 @@
     "sanitize-html": "^1.18.2",
     "template": "^0.17.5",
     "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1"
   }
 }

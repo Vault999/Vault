@@ -4,6 +4,7 @@
 
 var db = require("./db.js")                 // 아래 코드에 적용되어있는 모듈 가져오고 경로 설정
 var template = require("./template.js");    // 아래 코드에 적용되어있는 모듈 가져오고 경로 설정
+var template2 = require("./template2.js"); 
 var url = require("url");
 var qs = require("querystring");
 
@@ -13,7 +14,7 @@ exports.home = function(request, response){ // main에 topic.home에 req한 후 
         var title = "Welcome";
         var description = "Hello, Node.js";
         var list = template.list(topics); // template.js에 있는 list property의함수
-        var html = template.HTML(
+        var html = template2.HTML(
             title,
             list, // template.js에 있는 객체들
             `<h2>${title}</h2>${description}`, // template.js에 있는 body부분
