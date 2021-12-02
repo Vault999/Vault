@@ -15,7 +15,7 @@ app.use(bodyParser.json()); //post로 받은 json타입의 데이터
 app.use(bodyParser.urlencoded({extended:false})); //객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용한다는 말(true) //false값 사용시 qs가 추가적인  보안이 가능하다는 말. true값이 qs모듈을 설치하지 않으면 false값 따로 설정해야함.
 app.use(upload.array()); //배열에 업로드 ///어떤 배열로?
 
-const port = 3000;
+const port = 4500;
 const host = '127.0.0.1';
 
 require("dotenv").config();
@@ -36,7 +36,7 @@ app.post('/info', (req, res) => { // 받은데이터. 객체 형태로 전달된
     con.connect(function(err) {
 
         console.log("Database Connected!");
-        var sQuery = `insert into users (user_id, user_name, user_pw, user_repw) values ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}')`;
+        var sQuery = `insert into jw (user_id, user_name, user_pw, user_repw) values ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}')`;
     
     
         con.query(sQuery, (err, result, fields) => {
@@ -83,3 +83,5 @@ app.listen(port, host, () => { //서버연결
 
 
 ///문제점. 비밀번호가 노출됐다고 나옴. //port바꿨을 때 나옴.. 크롬문제같다고함
+///////////////////////재원work
+
