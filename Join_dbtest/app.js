@@ -4,8 +4,9 @@ const bodyParser = require("body-parser");
 const multer = require("multer"); //파일 업로드
 const upload = multer();
 const mysql = require('mysql');
+// const { request } = require("express");
 
-var Users = [];
+// var Users = [];
 app.set('view engine', 'pug'); 
 app.set("views", './views');
 
@@ -26,62 +27,88 @@ var con = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-app.get('/', (req,res) => { //urlencoded 어떻게 사용?
+app.get('/', (req, res) => {
+    res.render('mainhome')
+});
+
+
+app.get('/signup', (req,res) => { //urlencoded 어떻게 사용?
     res.render('signup');
 });
 
 //postman에서 확인? information pug는 어디에 연결된거지?
-app.post('/info', (req, res) => { // 받은데이터. 객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용 //?왜 info로 바꿔야 실행되지..?
-    console.log("Get information success!")
+app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용 //?왜 info로 바꿔야 실행되지..?
+    console.log("Get signup information success!")
     con.connect(function(err) {
 
         console.log("Database Connected!");
-        var sQuery = `insert into jw (user_id, user_name, user_pw, user_repw) values ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}')`;
+        var sQuery = `insert into users (user_id, user_name, user_pw, user_repw) values ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}')`;
     
     
         con.query(sQuery, (err, result, fields) => {
-            if(err) throw err
-            // else if(!req.body.id || !req.body.password){
-            //     res.status("404")
-            //     res.send("Invalid id or password")
-            // }
-            // else{
-            //     Users.filter((user) =>{
-            //         if(user.id === req.body.id){
-            //             res.render('signup', {      
-            //                 message: "User Alread Exists! Login or choose another user id"
-            //             });
-            //         }
-            //     });
+            if(err) throw err;
+    //         if(request.body.user_pw 
+    //             else if(!req.body.user_pw || !req.body.user_repw ){
+    //             // res.status("404")
+    //             res.send("Invalid id or password")
+    //         }
+    //         else{
+    //             Users.filter((user) =>{
+    //                 if(user.id === req.body.id){
+    //                     res.render('signup', {      
+    //                         message: "User Alread Exists! Login or choose another user id"
+    //                     });
+    //                 }
+    //             });
         
-            //     let newUser = {id: req.body.id, password: req.body.password};
-            //     Users.push(newUser)
-            console.log(result);
-        });
+    //             let newUser = {id: req.body.id, password: req.body.password};
+    //             Users.push(newUser)
+    //         console.log(result);
+    //     });
         
-    });
+    // });
     res.redirect('loginpage');
-});
+    console.log("redirect login page!!!")
     //  con.end();
-
-    // console.log(response)
-    //get에서 받은 데이더를 /info 경로에 아래 res해준다.
+        });
+    // 이것들의 써야하는 의미는 무엇인가..
     // res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
     // res.end(`이름 : ${response.user_name} \n아이디 : ${response.user_id} \n주소 : ${response.post} ${response.addr} ${response.detai}`)
+    });
+});
     
-   
-
+    
 app.get('/loginpage', (req, res) => {
     res.render('loginpage');
 });
 
-// app.post('')
+app.post('/logininfo', (req, res) => {
+    console.log("Get login information success!");
+    con.connect(function(err) {
+        console.log("Database Connected!");
+        var sQuery = `SELECT * FROM USERS WHERE user_id = '${req.body.user_id}';`
+        
+        // and user_pw '${req.body.user_pw}';    
+    
+        con.query(sQuery, (err, result, fields) => {
+            if(err) throw err;
+            if (!req.body.user_id === !sQuery){ //sql 쿼리문을 req.body.user_id인자와 비교하는게 따로 있는거 같음..! 이런식으로 비교하면 안될듯!
+                   ///// && !req.body.user_pw ===!sQuery어떻게 두개 한 번에?
+                res.render('loginpage');
+                res.send('존재하지 않는 아이디입니다.');
+                console.log("check user_id in database")
+            } else {
+            res.redirect('mainhome');
+            console.log("login success!!!")
+            }
+        });
+
+        
+    });
+    });
 
 app.listen(port, host, () => { //서버연결
     console.log(`application running at http://${host}:${port}/`)
 });
-
-
 ///문제점. 비밀번호가 노출됐다고 나옴. //port바꿨을 때 나옴.. 크롬문제같다고함
 ///////////////////////재원work
-

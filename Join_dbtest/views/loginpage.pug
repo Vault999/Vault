@@ -9,12 +9,12 @@ html(lang="ko")
         header 
             div Vault 
         main 
-            form(action="/lo" method="get")
+            form(action="/logininfo" method="post")
                 div 
                     div ID 
-                    input(type="text")
+                    input(name = "user_id" type = "text" id = "user_id")
                 div 
                     div Password
-                    input(type="text")
+                    input(name = "user_pw" type = "password" id = "user_pw")
                 br
                 input(type="submit")

@@ -10,18 +10,26 @@ html(lang="ko")
             div Vault 
         main 
             div
-                form(action="/info" method="POST")
+                form(action="/signupinfo" method="POST")
                     div 
                         div ID 
-                        input(name = "user_id" type = "text" require placeholder = "") 
+                        input(name = "user_id" type = "text" id = "user_id" require placeholder = "") 
                     div 
                         div Name
-                        input(name = "user_name" type = "text" require placeholder = "") 
+                        input(name = "user_name" type = "text" id = "user_name" require placeholder = "") 
                     div 
                         div Password 
-                        input(name = "user_pw" type = "password" require placeholder = "")
+                        input(name = "user_pw" type = "password" id = "user_pw" require placeholder = "")
                     div 
                         div (Re-password)
-                        input(name = "user_repw" type = "password" require placeholder = "")
+                        input(name = "user_repw" type = "password" id = "user_repw" require placeholder = "")
                     br
                     input(type="submit")
+                    //- button onclick="chkPW()" signUp
+        //- script 
+        //-     var reg = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
+        //-     var txt = "aaaa";
+        //-     if( !reg.user_pw(txt)  ) {
+        //-         alert("비밀번호 정규식 규칙 위반!!");
+        //-         return false;
+        //-     }
