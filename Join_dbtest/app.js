@@ -69,12 +69,13 @@ app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전
     // });
     res.redirect('loginpage');
     console.log("redirect login page!!!")
-    //  con.end();
+     
         });
     // 이것들의 써야하는 의미는 무엇인가..
     // res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
     // res.end(`이름 : ${response.user_name} \n아이디 : ${response.user_id} \n주소 : ${response.post} ${response.addr} ${response.detai}`)
     });
+    con.end();
 });
     
     
@@ -92,15 +93,16 @@ app.post('/logininfo', (req, res) => {
     
         con.query(sQuery, (err, result, fields) => {
             if(err) throw err;
-            if (!req.body.user_id === !sQuery){ //sql 쿼리문을 req.body.user_id인자와 비교하는게 따로 있는거 같음..! 이런식으로 비교하면 안될듯!
-                   ///// && !req.body.user_pw ===!sQuery어떻게 두개 한 번에?
-                res.render('loginpage');
-                res.send('존재하지 않는 아이디입니다.');
-                console.log("check user_id in database")
-            } else {
-            res.redirect('mainhome');
-            console.log("login success!!!")
-            }
+            console.log(result);
+            // if (req.body.user_id === result[0]){ //sql 쿼리문을 req.body.user_id인자와 비교하는게 따로 있는거 같음..! 이런식으로 비교하면 안될듯!
+            //        ///// && !req.body.user_pw ===!sQuery어떻게 두개 한 번에?
+            //     res.render('loginpage');
+            //     res.send('존재하지 않는 아이디입니다.');
+            //     console.log("check user_id in database")
+            // } else {
+            // res.redirect('mainhome');
+            // console.log("login success!!!")
+            // }
         });
 
         
