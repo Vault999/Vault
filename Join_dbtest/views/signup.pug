@@ -13,7 +13,9 @@ html(lang="ko")
                 form(action="/signupinfo" method="POST")
                     div 
                         div ID 
-                        input(name = "user_id" type = "text" id = "user_id" require placeholder = "") 
+                        input(name = "user_id" type = "text" id = "user_id" require placeholder = "")
+                        if(message) 
+                            h4 #{message} 
                     div 
                         div Name
                         input(name = "user_name" type = "text" id = "user_name" require placeholder = "") 

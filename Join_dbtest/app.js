@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const multer = require("multer"); //파일 업로드
 const upload = multer();
 const mysql = require('mysql');
-// const { request } = require("express");
 
 // var Users = [];
 app.set('view engine', 'pug'); 
@@ -16,7 +15,7 @@ app.use(bodyParser.json()); //post로 받은 json타입의 데이터
 app.use(bodyParser.urlencoded({extended:false})); //객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용한다는 말(true) //false값 사용시 qs가 추가적인  보안이 가능하다는 말. true값이 qs모듈을 설치하지 않으면 false값 따로 설정해야함.
 app.use(upload.array()); //배열에 업로드 ///어떤 배열로?
 
-const port = 4500;
+const port = 3300;
 const host = '127.0.0.1';
 
 require("dotenv").config();
@@ -27,8 +26,8 @@ var con = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-app.get('/', (req, res) => {
-    res.render('mainhome')
+app.get('/', (req,res) => {
+    res.render('mainhome');
 });
 
 
@@ -42,15 +41,41 @@ app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전
     con.connect(function(err) {
 
         console.log("Database Connected!");
-        var sQuery = `insert into users (user_id, user_name, user_pw, user_repw) values ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}')`;
+        var signQuery = `INSERT INTO joindbtest (user_id, user_name, user_pw, user_repw) VALUES ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}');`;
+        var idChkQuery = `SELECT user_id FROM joindbtest WHERE user_id'${req.body.user_id}';`
     
-    
-        con.query(sQuery, (err, result, fields) => {
+        con.query(idCHKQuery, (err, result, fields) => {
             if(err) throw err;
+            console.log(result[0]);
+        
+            if(idChkQuery.length != 0) {
+                res.render("signup", {message:"존재하는 아이디입니다"});
+                con.end();
+            } else {
+                con.query(signQuery, (err, result, fields) => {
+                    res.redirect('loginpage');
+                    console.log("redirect login page!!!")
+                    con.end();
+                });
+            }   
+        });
+
+       
+            if(err) throw err;
+            console.log(result[0]);
+           
+                res.redirect('loginpage');
+                console.log("redirect login page!!!")
+               con.end();
+            
+    });
+});
+
+
     //         if(request.body.user_pw 
     //             else if(!req.body.user_pw || !req.body.user_repw ){
     //             // res.status("404")
-    //             res.send("Invalid id or password")
+    //             res.send("<script>")
     //         }
     //         else{
     //             Users.filter((user) =>{
@@ -67,16 +92,11 @@ app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전
     //     });
         
     // });
-    res.redirect('loginpage');
-    console.log("redirect login page!!!")
-     
-        });
+           
     // 이것들의 써야하는 의미는 무엇인가..
     // res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
     // res.end(`이름 : ${response.user_name} \n아이디 : ${response.user_id} \n주소 : ${response.post} ${response.addr} ${response.detai}`)
-    });
-    con.end();
-});
+   
     
     
 app.get('/loginpage', (req, res) => {
@@ -85,15 +105,28 @@ app.get('/loginpage', (req, res) => {
 
 app.post('/logininfo', (req, res) => {
     console.log("Get login information success!");
+    
     con.connect(function(err) {
         console.log("Database Connected!");
-        var sQuery = `SELECT * FROM USERS WHERE user_id = '${req.body.user_id}';`
-        
+        var sQuery = `SELECT * FROM joindbtest WHERE user_id='${req.body.user_id}';`
+        console.log(req.body.user_id);
         // and user_pw '${req.body.user_pw}';    
     
         con.query(sQuery, (err, result, fields) => {
             if(err) throw err;
-            console.log(result);
+            console.log(result[0]);
+
+            if(!result[0]) {
+                // res.send("<script>alert('없는 아이디 입니다.');</script>");
+                // 변수값하나를 바꿔서 저장시킨다음에
+                res.render("loginpage", {message:"iderror"});
+                console.log('there are success');
+                con.end();
+                // res.redirect("./login");
+            } else {
+                res.redirect('mainhome');
+                console.log("redirect login page!!!")
+            }
             // if (req.body.user_id === result[0]){ //sql 쿼리문을 req.body.user_id인자와 비교하는게 따로 있는거 같음..! 이런식으로 비교하면 안될듯!
             //        ///// && !req.body.user_pw ===!sQuery어떻게 두개 한 번에?
             //     res.render('loginpage');
@@ -103,11 +136,12 @@ app.post('/logininfo', (req, res) => {
             // res.redirect('mainhome');
             // console.log("login success!!!")
             // }
+            // res.redirect('mainhome');
+            // console.log("redirect login page!!!")
         });
-
-        
+        con.end();
     });
-    });
+});
 
 app.listen(port, host, () => { //서버연결
     console.log(`application running at http://${host}:${port}/`)
