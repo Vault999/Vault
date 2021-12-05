@@ -1,7 +1,24 @@
-const multer = require('multer')
-const upload = multer({dest: './views/img'}) //dest : 저장 위치
+const express = require('express');
+const multer = require('multer');
+const ejs = require('ejs');
+const path = require('path')
 
-router.post('/upload',upload.single('img'),(req,res) => {
-    res.json(req.file)
-    console.log(req.file)
+//Init app
+const app = express();
+
+// ejs
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+//public folder
+app.use(express.static('./public'))
+
+const port = 3000;
+
+app.listen(port, () =>{
+    console.log('Server is running at : http://127.0.0.1:3000')
+})
+
+app.get('/', ()=>{
+    res.render('testindex');
 })

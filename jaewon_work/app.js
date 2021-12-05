@@ -22,19 +22,31 @@ app.get('/', (req, res)=>{
     res.render('main')
 })
 
-app.get('/board', (req, res)=>{
-    const sql = "SELECT * FROM musiclist"
-    fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
-        mysql.getConnection('select * from MusicList', function (err, results) {
-          if (err) {
-            res.send(err)
-          } else {
-            res.send(ejs.render(data, {
-              data: results
-            }))
-          }
-        })
-      })
+
+app.get('/board', function (req, res) {
+  fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
+    client.query('select * from MusicList', function (err, results) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.send(ejs.render(data, {
+          data: results
+        }))
+      }
+    })
+  })
+})
+
+app.get('/test', (req, res)=>{
+  const sql = "SELECT * FROM musiclist"
+      mysql.getConnection((err,connection)=>{   // getConnction 
+         if(err) throw err;
+         connection.query(sql, (err, result, fields)=>{
+             if(err) throw err;
+             console.log(result);
+         });
+          connection.release();  // 반환한다. 서버만 켜져있고, data는 썼으면 반환하는 개념
+      });
 })
 
 
