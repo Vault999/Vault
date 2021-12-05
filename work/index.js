@@ -40,7 +40,7 @@ app.listen(port, host, () => { //서버연결
 //=====================================================
 
 app.get('/', (req, res)=>{
-  res.render('main')
+  res.render('main_page')
 })
 
 app.get('/signup', (req,res) => { //urlencoded 어떻게 사용?
@@ -82,7 +82,7 @@ app.post('/', (req, res) => {
                  ///// && !req.body.user_pw ===!sQuery어떻게 두개 한 번에?
                  console.log("login success!!!")
                 
-                 res.render('main')   
+                 res.render('main_page')   
               }
           else {
         

@@ -19,7 +19,7 @@ app.set('views', 'views');
 // }))
 
 app.get('/', (req, res)=>{
-    res.render('main')
+    res.render('main_page')
 })
 
 
