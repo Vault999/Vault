@@ -1,0 +1,164 @@
+.wrap_main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.main_left {
+    display: flex;
+    width: 70%;
+    height: 100%;
+}
+
+.main_left div{
+    flex: 1;
+}
+
+.main_left_01{
+    height: 60%;
+}
+
+.wrap01{
+    width: 100%;
+    height: 100%;
+}
+
+.wrap01_top{
+    width: 100%;
+    height: 20%;
+    background: #E5E5E5;
+    border-top: 8px solid black;
+    border-left: 8px solid black;    
+    border-bottom: 8px solid black;    
+}
+
+.wrap01_middle{
+    width: 100%;
+    height: 60%;
+    background: #55B8FF;
+    border-left: 8px solid black;
+    border-bottom: 8px solid black;    
+}
+
+.wrap01_bottom{
+    width: 100%;
+    height: 20%;
+    background: #E5E5E5;
+    border-left: 8px solid black;
+    border-bottom: 8px solid black;    
+}
+
+.main_left_02{
+    height: 70%;
+}
+
+.wrap02{
+    width: 100%;
+    height: 100%;
+}
+
+.wrap02_top {
+    width: 100%;
+    height: 80%;
+    background: #55B8FF;
+    border: 8px solid black;    
+}
+
+.wrap02_top img{
+    width: 100%;
+    height: 100%;
+}
+
+.wrap02_bottom {
+    width: 100%;
+    height: 20%;
+    background: #EEEEEE;
+    border-left: 8px solid black;
+    border-bottom: 8px solid black;
+    border-right: 8px solid black;
+}
+
+.main_left_03{
+    height: 60%;
+}
+
+.wrap03{
+    width: 100%;
+    height: 100%;
+}
+
+.wrap03_top {
+    width: 100%;
+    height: 80%;
+    background: #55B8FF;
+    border-top: 8px solid black;    
+    border-bottom: 8px solid black;
+    border-right: 8px solid black;    
+}
+
+.wrap03_bottom {
+    width: 100%;
+    height: 20%;
+    background: #E5E5E5;
+    border-right: 8px solid black;    
+    border-bottom: 8px solid black;
+}
+
+.main_empty {
+    width: 20%;
+    height: 100%;
+}
+
+.main_right {
+    width: 20%;
+    height: 100%;
+}
+
+.wrap_creator{
+    width: 100%;
+    height: 80%;
+}
+
+.creator_bar{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+}
+
+.creator_bar_left{
+    border: 8px solid black;
+    width: 90%;
+    height: 100%;
+}
+
+.creator_bar_right{
+    width: 10%;
+    height: 100%;
+}
+
+.creator_bar_right img{
+    width: 100%;
+    height: 70%;
+}
+
+.creator_list{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+}
+
+.creator_list_left {
+    background-color: #55B8FF;
+    width: 90%;
+    height: 100%;
+    border-right: 8px solid black;
+    border-left: 8px solid black;
+}
+
+.creator_list_right{
+    width: 10%;
+    height: 100%;
+}

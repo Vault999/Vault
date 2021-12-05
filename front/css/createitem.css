@@ -1,0 +1,112 @@
+#createNFTmain { /*크리에이트페이지 메인설정*/
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.createNFT-container { /*구조만 grid로 구현*/
+    width: 60%;
+    display: grid;
+    grid-template-columns: 3fr 6fr 1fr;
+    grid-template-rows: repeat(4, 1fr), 3fr, repeat(2, 1fr);
+}
+
+.mnstruc:nth-child(1) { /*contenthd*/
+    grid-column: 1/3;
+    background-color: rgb(255, 61, 45);
+    border: 5px solid black;
+    display: flex;
+    align-items: center;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 1.3em; 
+}
+
+.mnstruc:nth-child(3) { /*create_imgupload*/
+    grid-row: 2/4;
+    background-color: rgb(255, 255, 255);
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#uploadimg {  /*이미지 사이즈조절*/
+    width: 50%;
+    height: 80%;
+}
+
+.mnstruc:nth-child(4) { /*create_nftNum*/
+    background-color: rgb(80, 186, 248);
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 1em;
+}
+
+.mnstruc:nth-child(5) { /*create_nftPrice*/
+    background-color: rgb(238, 238, 238);
+    border-right: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 1em;
+}
+
+.mnstruc:nth-child(6) { /*공백부분*/
+    grid-column: 3;
+    grid-row: 2/6;
+}
+
+.mnstruc:nth-child(7), .mnstruc:nth-child(9) { /*contenthd*/
+    grid-column: 1/3;
+    background-color: rgb(80, 186, 248);
+    border: 5px solid black;
+    display: flex;
+    align-items: center;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 1.3em;
+}
+
+.mnstruc:nth-child(8) { /*create_nftDescrip*/
+    grid-column: 1/3;
+    background-color: rgb(238, 238, 238);
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 1em;
+}
+
+.mnstruc:nth-child(10) { /*windflow*/
+    display: flex;
+    align-content: flex-end;
+}
+
+.mnstruc:nth-child(11) { /*create_submit*/
+    grid-column: 1/3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#contenthd { /*폰트설정해야 하양바탕에 검정글씨*/
+    padding-left: 20px;
+}
+
+.submitButt { /*제출버튼*/
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 2px;
+    border: 5px solid black;
+    background-color: red;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1em; 
+    width: 70px; /*제출버튼사이즈 조절*/
+}

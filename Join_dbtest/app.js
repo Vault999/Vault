@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const multer = require("multer"); //파일 업로드
 const upload = multer();
 const mysql = require('mysql');
+const router = require('./routes')
 
 // var Users = [];
 app.set('view engine', 'pug'); 
@@ -31,14 +32,7 @@ app.get('/', (req,res) => {
 });
 
 
-app.get('/signup', (req,res) => { //urlencoded 어떻게 사용?
-    res.render('signup');
-});
 
-//postman에서 확인? information pug는 어디에 연결된거지?
-app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용 //?왜 info로 바꿔야 실행되지..?
-    console.log("Get signup information success!")
-    con.connect(function(err) {
 
         console.log("Database Connected!");
         var signQuery = `INSERT INTO joindbtest (user_id, user_name, user_pw, user_repw) VALUES ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}');`;
@@ -60,16 +54,13 @@ app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전
             }   
         });
 
-       
+
             if(err) throw err;
             console.log(result[0]);
-           
+
                 res.redirect('loginpage');
                 console.log("redirect login page!!!")
-               con.end();
-            
-    });
-});
+                con.end();
 
 
     //         if(request.body.user_pw 
@@ -92,11 +83,11 @@ app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전
     //     });
         
     // });
-           
+
     // 이것들의 써야하는 의미는 무엇인가..
     // res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
     // res.end(`이름 : ${response.user_name} \n아이디 : ${response.user_id} \n주소 : ${response.post} ${response.addr} ${response.detai}`)
-   
+
     
     
 app.get('/loginpage', (req, res) => {
