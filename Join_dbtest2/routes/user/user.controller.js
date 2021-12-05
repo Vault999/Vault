@@ -28,7 +28,7 @@ const singupinfo = (req,res) => {
             }   
         });
 
-       
+
             if(err) throw err;
             console.log(result[0]);
            
