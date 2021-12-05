@@ -1,0 +1,54 @@
+#signINmain { /*가입페이지 메인설정*/
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signIn-container { /*가입박스설정*/
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    width: 20%;
+}
+
+.signInform1 { /*글씨부분...폰트...ㅠㅠ*/
+    color: #000000;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: flex;
+}
+
+/* #questionmark { //loginpage글씨부분옆에물음표이미지 사이즈조절...
+    background-size: contain;
+    background-repeat: no-repeat;
+} */
+
+.signInform2 > input { /*글씨input부분*/
+    border: 5px solid #000000;
+    width: 100%;
+    font-size: 1.1em;
+}
+
+.signInform3 { /*제출부분*/
+    align-self: flex-end;
+    justify-self: space-around;
+}
+
+.submitButt { /*제출버튼*/
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 2px;
+    border: 5px solid black;
+    background-color: red;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1em; 
+    width: 70px; /*제출버튼사이즈 조절*/
+}
+
+.signInform2 > input:hover, input:focus, .submitButt:hover { /*input효과구현*/
+    border-color: rgba(236, 28, 36);
+    /* box-shadow: 0 1px 1px rgba(236, 28, 36, 0.075) inset, 0 0 8px rgba(236, 28, 36, 0.6); */
+    outline: 0 none;
+}

@@ -1,0 +1,72 @@
+#dogeclub-main {  /*프로젝트페이지 메인설정*/
+    display: flex;
+}
+
+/*해결 안 된 부분: 
+1. 폰트 바꾸기(dogetitle/dogecontent1/dogedescrip) 
+2. row 2 -border안맞음...*/
+
+.dogeclub-container { /*도지클럽 박스설정*/
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.dogeclubhd { /*도지클럽(1행)*/
+    flex: 1;
+    display: flex;
+}
+
+.dogetitle {  /*도지클럽제목부분*/
+    background-color: rgb(80, 186, 248);
+    border: 5px solid black;
+    flex: 9;
+    color: white;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 2em;
+    text-align: center;
+}
+
+.windflowhd { /*짝대기이미지*/
+    flex: 1;
+}
+
+.dogecontent1 { /*도지클럽(2행)*/
+    flex: 1;
+    display: flex;
+    width: 90%; /*border가 안맞는 이유인듯,,,수정이 필요할듯*/
+    border-right: 5px solid black;
+}
+
+.dogeinform { /*도지클럽 2행 텍스트설정*/
+    background-color: rgb(238, 238, 238);
+    border-left: 5px solid black;
+    flex: 1;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 1em;
+    text-align: center;
+}
+
+.dogecontent2 {  /*도지클럽(3행)*/
+    flex: 1;
+    display: flex;
+}
+
+.dogedescrip { /*도지클럽 3행 텍스트설정*/
+    background-color: rgb(196, 196, 196);
+    border: 5px solid black;
+    flex: 9;
+    color: white;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.windflowft {  /*짝대기이미지*/
+    flex: 1;
+    align-self: flex-end;
+}

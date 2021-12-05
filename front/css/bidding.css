@@ -1,0 +1,161 @@
+.grid{
+    margin: auto;
+    width: 50%;
+    height: 70%;
+}
+
+.wrap_grid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.wrap_left{
+    width: 30%;
+    height: 100%;
+}
+
+.left{
+    height: 100%;
+    width: 100%;
+}
+
+.left .profile{
+    width: 100%;
+    height: 55%;
+    border-top: 8px black solid;
+    border-left: 8px black solid;
+    border-bottom: 8px black solid;
+}
+
+.left .profile img{
+    width: 100%;
+    height: 100%;
+}
+
+.left .nickname{
+    width: 100%;
+    height: 15%;
+    background-color: #EEEEEE;
+    border-left: 8px black solid;
+    border-bottom: 8px black solid;
+}
+
+.left .info{
+    width: 100%;
+    height: 30%;
+    background-color: #C4C4C4;
+    border-left: 8px black solid;
+    border-bottom: 8px black solid;
+}
+
+.wrap_center{
+    width: 60%;
+    height: 100%;
+}
+
+.center{
+    width: 100%;
+    height: 100%;
+}
+
+.center .wrap_center_top{
+    width: 100%;
+    height: 55%;
+    border-top:8px black solid;
+    border-left: 8px black solid;
+    border-bottom: 8px black solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.center_top{
+    width: 100%;
+    height: 100%;
+}
+
+.center_top .project_name{
+    background-color: #EEEEEE;
+    width: 100%;
+    height: 25%;
+    border-bottom: 8px black solid;
+}
+
+.center_top .wrap_bid{
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrap_bid_top {
+    width: 100%;
+    height: 50%;
+    background-color: #229ED9;
+}
+
+.wrap_bid_bottom {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background-color: #229ED9;
+}
+
+#btn_bidding {
+    position: absolute;
+    right: 10%;
+    border: 8px black solid;
+    background-color: #FF4228;
+    width: 30%;
+    height: 67%;
+}
+
+.center .center_middle{
+    width: 100%;
+    height: 15%;
+    background-color: #EEEEEE;
+    border-left: 8px black solid;
+    border-bottom: 8px black solid;
+}
+
+.center .center_botton{
+    width: 100%;
+    height: 30%;
+    background-color: #C4C4C4;
+    border-bottom: 8px black solid;
+    border-left: 8px black solid;
+}
+
+.wrap_right{
+    width: 10%;
+    height: 100%;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    border-left: 8px black solid;
+}
+
+.right .right_top {
+    width: 100%;
+    height: 15%;
+}
+
+.right_top img{
+    width: 50%;
+    height: 100%;
+}
+
+.right .right_bottom {
+    width: 100%;
+    height: 15%;
+}
+
+.right_bottom img{
+    width: 50%;
+    height: 100%;
+}
