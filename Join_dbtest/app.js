@@ -27,9 +27,40 @@ var con = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-app.use('/',router)
+app.get('/', (req,res) => {
+    res.render('mainhome');
+});
 
 
+
+
+        console.log("Database Connected!");
+        var signQuery = `INSERT INTO joindbtest (user_id, user_name, user_pw, user_repw) VALUES ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}');`;
+        var idChkQuery = `SELECT user_id FROM joindbtest WHERE user_id'${req.body.user_id}';`
+    
+        con.query(idCHKQuery, (err, result, fields) => {
+            if(err) throw err;
+            console.log(result[0]);
+        
+            if(idChkQuery.length != 0) {
+                res.render("signup", {message:"존재하는 아이디입니다"});
+                con.end();
+            } else {
+                con.query(signQuery, (err, result, fields) => {
+                    res.redirect('loginpage');
+                    console.log("redirect login page!!!")
+                    con.end();
+                });
+            }   
+        });
+
+
+            if(err) throw err;
+            console.log(result[0]);
+
+                res.redirect('loginpage');
+                console.log("redirect login page!!!")
+                con.end();
 
 
     //         if(request.body.user_pw 
@@ -52,11 +83,11 @@ app.use('/',router)
     //     });
         
     // });
-           
+
     // 이것들의 써야하는 의미는 무엇인가..
     // res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
     // res.end(`이름 : ${response.user_name} \n아이디 : ${response.user_id} \n주소 : ${response.post} ${response.addr} ${response.detai}`)
-   
+
     
     
 app.get('/loginpage', (req, res) => {

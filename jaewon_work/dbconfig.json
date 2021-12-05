@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "user" : "root",
+    "password" : "thdrn48",
+    "database" : "musiclist",
+    "connectionLimit" : 100  
+}
