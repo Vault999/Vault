@@ -1,0 +1,163 @@
+.main{
+    
+}
+
+.mypage {
+    position: absolute;
+
+}
+
+.main .wrap_nav {
+    height: 100%;
+    width: 15%;
+}
+
+.nav {
+    width: 95%;
+    height: 95%;
+    border: 8px solid black;
+}
+
+.nav_bar {
+    background-color: #E5E5E5;
+    border-bottom: 8px solid black;
+    width: 100%;
+    height: 8%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+}
+
+.nav_category1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15%;
+}
+
+.nav_category1 div {
+    background-color: black;
+    color: white;
+    flex: 1;
+}
+
+.nav_category2 {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 8%;
+}
+
+.nav_category2 div{
+    background-color: black;
+    color: white;
+    width: 100%;
+    flex: 1;
+}
+
+.nav_category3 {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 15%;
+}
+
+.nav_category3 div{
+    background-color: black;
+    color: white;
+    width: 100%;
+    flex: 1;
+}
+
+.nav_category4 {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 22%;
+}
+
+.nav_category4 div{
+    background-color: black;
+    color: white;
+    flex: 1;
+}
+
+.wrap_main {
+    height: 100%;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    position: relative;
+}
+
+.mypage {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: -1vh;
+    right: 5%;
+    width: 19.8vw;
+    height: 25vh;
+    background-color: white;
+    border: 8px solid black;
+}
+
+.mypage_top {
+    width: 100%;
+    height: 50%;
+    background-color: #55B8FF;
+    border-bottom: 8px solid black;
+}
+
+.mypage_bottom {
+    width: 100%;
+    height: 50%;
+    background-color: #C4C4C4;
+}
+
+.wrap_main .wrap_goods {
+    margin: auto;
+    width: 90%;
+    height: 100%;
+}
+
+.wrap_goods2 {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.goods {
+    border:  8px solid black;
+    margin: 2%;
+    width: 10vw;
+    height: 27vh;
+}
+
+.img_area {
+    width: 100%;
+    height: 75%;
+}
+
+.img_area img{
+    width: 100%;
+    height: 100%;
+}
+
+.info_area{
+    width: 100%;
+    height: 25%;
+    background-color: #E5E5E5;
+    border-top:  8px solid black;
+}
