@@ -12,11 +12,11 @@
   <hr/>
   <table border="1">
     <tr>
-      <th>번호</th>
-      <th>제목</th>
-      <th>가격</th>
-      <th>내용</th>
-      <th>태그</th>
+      <th>ID</th>
+      <th>TITLE</th>
+      <th>PRICE</th>
+      <th>DESCRIPTION</th>
+      <th>TAG</th>
       <th>DELETE</th>   
       <th>EDIT</th>
     </tr>
@@ -24,10 +24,11 @@
     <tr>
       
       <td><%= item.id %></td>
-      <td><%= item.name %></td>
-      <td><%= item.artist %></td>
-      <td><%= item.genre %></td>
-      <td></td>
+      <td><%= item.title %></td>
+      <td><%= item.price %></td>
+      <!-- <td><%= item.genre %></td> -->
+      <td><%= item.description %></td>
+      <td><%= item.tag %></td>
       <td><a href="/board/delete/<%= item.id%>">DELETE</a></td>
       <td><a href="/board/edit/<%= item.id %>">EDIT</a></td>
     </tr>
