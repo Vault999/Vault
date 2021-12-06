@@ -2,28 +2,23 @@ const express = require('express')
 const fs = require('fs')
 const ejs = require('ejs')
 const mysql = require('mysql')
+require("dotenv").config();
 const bodyParser = require('body-parser')
 
+
 const client = mysql.createConnection({
-  user: 'root',
-  password: 'thdrn48', //본인의 db root 계정 비밀번호
-  database: 'vault999' //본인의 db
-})
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+});
 
-// require("dotenv").config();
-// const client = mysql.createConnection({
-//     host: process.env.HOST,
-//     user: process.env.USER,
-//     password: process.env.PASSWORD,
-//     database: process.env.DATABASE
-// });
-
-const port = 3000;
+const port = 4000;
 const host = '127.0.0.1';
 
 const app = express()
 
-var Users = [];
+// var Users = [];
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 

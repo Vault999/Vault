@@ -2,6 +2,6 @@
     "host": "localhost",
     "user" : "root",
     "password" : "thdrn48",
-    "database" : "musiclist",
+    "database" : "vault999",
     "connectionLimit" : 100  
 }
