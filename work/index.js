@@ -5,7 +5,7 @@ const ejs = require('ejs');
 const mysql = require('mysql');
 require("dotenv").config();
 const bodyParser = require('body-parser');
-const { connect } = require('http2');
+// const { connect } = require('http2');
 const session = require('express-session');
 
 const client = mysql.createConnection({
@@ -15,7 +15,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3500;
+const port = 3200;
 const host = '127.0.0.1';
 
 app.use(session({
@@ -79,7 +79,7 @@ app.post('/signupinfo', (req, res) => {
           });
 
         // client.end();
-        res.redirect('login_page'); //render/redirect/
+        res.redirect('/login'); //render/redirect/
         }        
       });
   });
@@ -121,7 +121,8 @@ app.post('/login', (req, res) => {
             console.log("check user_id in database");
             }
           }
-    }); 
+    });
+    client.end();
   });
 });
   
