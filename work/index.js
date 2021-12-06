@@ -50,6 +50,7 @@ app.get('/', (req, res)=>{
 app.post('/logout', (req, res) => {
   delete req.session.loginState;
   delete req.session.loginedId;
+  console.log("logout!")
   res.redirect('/') //res.send('<script>window.location.href = "/"; </script>'); 
 });
 
