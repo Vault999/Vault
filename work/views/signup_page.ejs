@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
             <div class="signIn-container">
                 <form action="/signupinfo" method="POST">
                     <div class="signInform1"> 
-                        <label for="user_id">ID</label>
+                        <label for="user_id">ID</label><div id="idChk" style="display: none;">아이디를 확인하세요.</div>
                         <!-- <div id="questionmark"><img src=""></div> -->
                         <!-- 인간적으로 빨간별은 봐줍시다...;; -->
                     </div>
@@ -35,7 +35,7 @@
                         <input type="text" id="user_id" name="user_id" placeholder=" email-address">
                     </div>
                     <div class="signInform1"> 
-                        <label for="user_name">NAME</label>
+                        <label for="user_name">NAME</label><div id="nameChk"  style="display: none;">아이디를 확인하세요.</div>
                         <!-- <img id="questionmark" src=""> 사이즈조절 어케하징...마우스올리면 대소문자혼합8자이상 이딴거 떠야할것같은데,,,하-->
                         <!-- <img id="questionmark" src=""> -->
                     </div>
@@ -43,14 +43,14 @@
                         <input type="text" id="user_name" name="user_name" placeholder=" Text input">
                     </div>
                     <div class="signInform1"> 
-                        <label for="user_pw">PASSWORD</label>
+                        <label for="user_pw">PASSWORD</label><div id="pwChk"  style="display: none;">비밀번호를 확인하세요.</div>
                         <!-- <img id="questionmark" src=""> -->
                     </div>
                     <div class="signInform2" > <!--CSS 아이디 수정해야함 이전id="signPassword"-->
                         <input type="password" id="user_pw" name="user_pw" placeholder=" Text input">
                     </div>
                     <div class="signInform1"> 
-                        <label for="user_repw">RE-PASSWORD</label>
+                        <label for="user_repw">RE-PASSWORD</label><div id="rePwChk"  style="display: none;">비밀번호를 다시 확인하세요.</div>
                         <!-- <img id="questionmark" src=""> -->
                     </div>
                     <div class="signInform2"> <!--CSS 아이디 수정해야함 이전id="signRe_password"-->
@@ -67,6 +67,24 @@
     </main>
 
     <script>
+        // function email_check( email )
+        // { var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        //     return (email != '' && email != 'undefined' && regex.test(email)); }
+
+        // var emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+        // if (!emailRegExp.test(user_id)) {
+        //     document.getElementById("quickMenu").style.display = "block";
+        //     return false;
+        // }
+        // else {
+        //     document.getElementById("quickMenu").style.display = "none";
+        //     return true;
+        // }
+
+
+        // if(user_pw === !user_repw){
+
+        
         //-     var reg = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
         //-     var txt = "aaaa";
         //-     if( !reg.user_pw(txt)  ) {

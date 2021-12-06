@@ -1,99 +1,129 @@
-const express = require('express')
-const fs = require('fs')
-const ejs = require('ejs')
-const mysql = require('mysql')
-const bodyParser = require('body-parser')
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const ejs = require('ejs');
+const mysql = require('mysql');
+require("dotenv").config();
+const bodyParser = require('body-parser');
+const { connect } = require('http2');
+const session = require('express-session');
 
 const client = mysql.createConnection({
-  user: 'root',
-  password: 'thdrn48', //본인의 db root 계정 비밀번호
-  database: 'vault999' //본인의 db
-})
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+});
 
-// require("dotenv").config();
-// const client = mysql.createConnection({
-//     host: process.env.HOST,
-//     user: process.env.USER,
-//     password: process.env.PASSWORD,
-//     database: process.env.DATABASE
-// });
-
-const port = 3000;
+const port = 3500;
 const host = '127.0.0.1';
 
-const app = express()
+app.use(session({
+  secure: false,
+  secret: 'sdfsdf',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {maxAge:(1000 * 60 * 30)}
+}));
 
-var Users = [];
+// var Users = [];
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.use(express.static('views'));  ///use 시작하는 모든 경로에 응답. get, post ,
+app.use(express.static('views'));
 app.use(bodyParser.json()); //post로 받은 json타입의 데이터
 app.use(bodyParser.urlencoded({extended:false})); //객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용한다는 말(true) //false값 사용시 qs가 추가적인  보안이 가능하다는 말. true값이 qs모듈을 설치하지 않으면 false값 따로 설정해야함.
 // app.use(upload.array()); //배열에 업로드 ///어떤 배열로?
 
-app.listen(port, host, () => { //서버연결
+app.listen(port, host, () => { 
   console.log(`application running at http://${host}:${port}/`)
 });
-
 
 //=====================================================
 
 app.get('/', (req, res)=>{
-  res.render('main_page')   //main_page
-})
+  res.render('main_page', {loginState:req.session.loginState, loginedId:req.session.loginedId}); 
+  console.log(req.session.loginState);
+  console.log(req.session.loginedId);
+});
 
-app.get('/signup_page', (req,res) => { //urlencoded 어떻게 사용?
+app.post('/logout', (req, res) => {
+  delete req.session.loginState;
+  delete req.session.loginedId;
+  res.redirect('/') //res.send('<script>window.location.href = "/"; </script>'); 
+});
+
+app.get('/signup', (req,res) => {
   res.render('signup_page');
 });
 
-app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용 //?왜 info로 바꿔야 실행되지..?
+app.post('/signupinfo', (req, res) => {
   console.log("Get signup information success!")
+  
   client.connect(function(err) {
+    console.log("Database Connected!");
 
-      console.log("Database Connected!");
-      var sQuery = `insert into users (user_id, user_name, user_pw, user_repw) values ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}')`;
-  
-  
-      client.query(sQuery, (err, result, fields) => {
-          if(err) throw err;
+      const signupQuery = `INSERT INTO users (user_id, user_name, user_pw, user_repw) VALUES ('${req.body.user_id}', '${req.body.user_name}', '${req.body.user_pw}', '${req.body.user_repw}')`;
+      const signIdChkQuery = `SELECT user_id FROM users WHERE user_id='${req.body.user_id}';`;
+      
+      client.query(signIdChkQuery, (err, result, fields) => {
+        if(err) throw err;
 
-  res.redirect('login_page');
-  console.log("redirect login page!!!")
+        if(result[0]) {
+          // client.end();
+          res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세요"); window.location.href = "/signup"; </script>');
+        } else {
+          client.query(signupQuery, (err, result, fields) => {
+            if(err) throw err;
+            console.log(result);
+          });
+
+        // client.end();
+        res.redirect('login_page'); //render/redirect/
+        }        
       });
   });
 });
 
-app.get('/login_page', (req, res) => {
+app.get('/login', (req, res) => {
   res.render('login_page');
 });
 
-app.post('/', (req, res) => {
+app.post('/login', (req, res) => {
   console.log("Get login information success!");
-  client.connect(function(err) {
-      console.log("Database Connected!");
-      var sQuery = `SELECT * FROM users WHERE user_id = '${req.body.user_id}';`
-      
-      // and user_pw '${req.body.user_pw}';    
   
-      client.query(sQuery, (err, result, fields) => {
-          if(err) throw err;
-          if (result[0]){ //sql 쿼리문을 req.body.user_id인자와 비교하는게 따로 있는거 같음..! 이런식으로 비교하면 안될듯!
-                 ///// && !req.body.user_pw ===!sQuery어떻게 두개 한 번에?
-                 console.log("login success!!!")
-                
-                 res.render('main_page')   
-              }
-          else {
-        
-              
-              res.render('login_page');
-              // res.send("<script>alert('없는 아이디 입니다.');</script>");
-              console.log("check user_id in database")
+  client.connect(function(err) {
+    console.log("Database Connected!");
+      
+    const loginIdChkQuery = `SELECT * FROM users WHERE user_id = '${req.body.user_id}';`;
+    client.query(loginIdChkQuery, (err, result, fields) => {
+      if(err) throw err;
+
+      if(req.body.user_id=='') {
+        // client.end();
+        res.send("<script>alert('아이디를 입력하세요.');window.location.href='/login_page';</script>");
+      } else if(!result[0]) {
+        // res.render('login_page');
+        // client.end();
+        res.send("<script>alert('없는 아이디입니다.');window.location.href='/login_page';</script>");
+        console.log("check user_id in database");
+        } else {
+          if(result[0].user_pw === req.body.user_pw) {
+            console.log("login success!!!");
+            req.session.loginState = 'okay';
+            req.session.loginedId = result[0].user_id;
+            // client.end();
+            // res.redirect('/');
+            res.render("main_page", {loginState:req.session.loginState, id:req.session.loginedId})
+          } else {
+            // client.end();
+            res.send("<script>alert('틀린비밀번호 입니다.');window.location.href='/login_page';</script>");
+            console.log("check user_id in database");
+            }
           }
-          }); 
-      });
+    }); 
   });
+});
   
 //======================================================
 

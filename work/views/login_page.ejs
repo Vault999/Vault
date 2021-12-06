@@ -25,13 +25,13 @@
     <main>
         <div class="main" id="signINmain">
             <div class="signIn-container">
-                <form action="/" method="POST">
+                <form action="/login" method="POST">
                     <div class="signInform1"> 
                         <label for="user_id">ID</label>
                         <!-- <div id="questionmark"><img src=""></div> -->
                         <!-- 인간적으로 빨간별은 봐줍시다...;; -->
                     </div>
-                    <div class="signInform2"> <!--CSS 아이디 수정해야함 이전id="signId"-->
+                    <div class="signInform2"><!--CSS 아이디 수정해야함 이전id="signId"-->
                         <input type="text" id="user_id" name="user_id" placeholder=" email-address">
                     </div>
                     <div class="signInform1"> 
@@ -53,8 +53,11 @@
     </main>
 
     <script>
-        //-     var reg = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
-        //-     var txt = "aaaa";
+    //     var empJ = /\s/g;
+	// // 비밀번호 정규식
+	// var pwJ = /^[A-Za-z0-9]{4,12}$/; 
+	// // 이메일 검사 정규식
+	// var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
         //-     if( !reg.user_pw(txt)  ) {
         //-         alert("비밀번호 정규식 규칙 위반!!");
         //-         return false;

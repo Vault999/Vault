@@ -15,7 +15,7 @@
             <div class="headLeft">
                 <div class="headLeft_container">
                     <div class="logo-container">
-                        <img src="../assets/logo/toplogo.svg">
+                        <a href="/main_page>"><img src="../assets/logo/toplogo.svg"></a>
                     </div>
                     <form action="/" method="get"></form>
                         <div class="headSearch-container">
@@ -29,9 +29,16 @@
                     <div><a href="/board">EXPLORE</a></div>
                     <div>CREATE</div>
                     <div class="mypage-container">
-                        <a href="/login_page">
-                            <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
-                        </a>
+                        <% if(!loginState) { %>
+                        <a href="/login"> 로그인 </a>
+                        <% } else if(loginState == "okay") { %>
+                        <form action="/logout" method="POST">
+                            <button type="submit">로그아웃</button>
+                        </form>
+                        <% } %>
+                        <!-- <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"> -->
+
+                      
                     </div>
                 </div>
             </div>
