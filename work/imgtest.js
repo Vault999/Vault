@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 //public folder
-app.use(express.static('./public'))
+app.use(express.static('./views'))
 
 const port = 3000;
 
@@ -20,5 +20,5 @@ app.listen(port, () =>{
 })
 
 app.get('/', ()=>{
-    res.render('testindex');
+    res.render('main_page');
 })

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const client = mysql.createConnection({
   user: 'root',
   password: 'thdrn48', //본인의 db root 계정 비밀번호
-  database: 'musiclist' //본인의 db
+  database: 'vault999' //본인의 db
 })
 
 // require("dotenv").config();
@@ -40,7 +40,7 @@ app.listen(port, host, () => { //서버연결
 //=====================================================
 
 app.get('/', (req, res)=>{
-  res.render('main')
+  res.render('main_page')
 })
 
 app.get('/signup', (req,res) => { //urlencoded 어떻게 사용?
@@ -82,7 +82,7 @@ app.post('/', (req, res) => {
                  ///// && !req.body.user_pw ===!sQuery어떻게 두개 한 번에?
                  console.log("login success!!!")
                 
-                 res.render('main')   
+                 res.render('main_page')   
               }
           else {
         
@@ -99,7 +99,7 @@ app.post('/', (req, res) => {
 
 app.get('/board', function (req, res) {
   fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
-    client.query('select * from MusicList', function (err, results) {
+    client.query('select * from board', function (err, results) {
       if (err) {
         res.send(err)
       } else {
@@ -113,7 +113,7 @@ app.get('/board', function (req, res) {
 
 
 app.get('/board/delete/:id', function (req, res) {
-    client.query('delete from MusicList where id=?', [req.params.id], function () {
+    client.query('delete from board where id=?', [req.params.id], function () {
       res.redirect('/board')
     })
   })
@@ -129,10 +129,11 @@ app.get('/board/insert', function (req, res) {
 app.post('/board/insert', function (req, res) {
     const body = req.body
     
-    client.query('insert into MusicList (name, artist, genre) values (?, ?, ?);', [
-        body.name,
-        body.artist,
-        body.genre
+    client.query('insert into board (title, price, description, tag) values (?, ?, ?, ?);', [
+        body.title,
+        body.price,
+        body.description,
+        body.tag
     ], function() {
         res.redirect('/board')
     })
@@ -140,7 +141,7 @@ app.post('/board/insert', function (req, res) {
       
 app.get('/board/edit/:id', function (req, res) {
     fs.readFile('./views/edit.ejs', 'utf8', function (err, data) {
-        client.query('select * from MusicList where id = ?', [req.params.id], function (err, result) {
+        client.query('select * from board where id = ?', [req.params.id], function (err, result) {
         res.send(ejs.render(data, {
             data: result[0]
         }))
@@ -151,8 +152,8 @@ app.get('/board/edit/:id', function (req, res) {
 app.post('/board/edit/:id', function (req, res) {
     const body = req.body
     
-    client.query('update MusicList SET name=?, artist=?, genre=? where id=?',[
-        body.name, body.artist, body.genre, req.params.id
+    client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
+        body.title, body.price, body.description, body.tag, req.params.id
     ], function () {
         res.redirect('/board')
     })
