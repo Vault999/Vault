@@ -50,6 +50,7 @@ app.get('/', (req, res)=>{
 app.post('/logout', (req, res) => {
   delete req.session.loginState;
   delete req.session.loginedId;
+  console.log("logout!")
   res.redirect('/') //res.send('<script>window.location.href = "/"; </script>'); 
 });
 
@@ -101,11 +102,11 @@ app.post('/login', (req, res) => {
 
       if(req.body.user_id=='') {
         // client.end();
-        res.send("<script>alert('아이디를 입력하세요.');window.location.href='/login_page';</script>");
+        res.send("<script>alert('아이디를 입력하세요.');window.location.href='/login';</script>");
       } else if(!result[0]) {
         // res.render('login_page');
         // client.end();
-        res.send("<script>alert('없는 아이디입니다.');window.location.href='/login_page';</script>");
+        res.send("<script>alert('없는 아이디입니다.');window.location.href='/login';</script>");
         console.log("check user_id in database");
         } else {
           if(result[0].user_pw === req.body.user_pw) {
@@ -117,12 +118,12 @@ app.post('/login', (req, res) => {
             res.render("main_page", {loginState:req.session.loginState, id:req.session.loginedId})
           } else {
             // client.end();
-            res.send("<script>alert('틀린비밀번호 입니다.');window.location.href='/login_page';</script>");
+            res.send("<script>alert('틀린비밀번호 입니다.');window.location.href='/login';</script>");
             console.log("check user_id in database");
             }
           }
     });
-    client.end();
+    // client.end();
   });
 });
   
