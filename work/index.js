@@ -40,11 +40,11 @@ app.listen(port, host, () => { //서버연결
 //=====================================================
 
 app.get('/', (req, res)=>{
-  res.render('main_page')
+  res.render('main_page')   //main_page
 })
 
-app.get('/signup', (req,res) => { //urlencoded 어떻게 사용?
-  res.render('signup');
+app.get('/signup_page', (req,res) => { //urlencoded 어떻게 사용?
+  res.render('signup_page');
 });
 
 app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전달된 데이터내에서 또다른 중접된 객체를 허용 //?왜 info로 바꿔야 실행되지..?
@@ -58,14 +58,14 @@ app.post('/signupinfo', (req, res) => { // 받은데이터. 객체 형태로 전
       client.query(sQuery, (err, result, fields) => {
           if(err) throw err;
 
-  res.redirect('loginpage');
+  res.redirect('login_page');
   console.log("redirect login page!!!")
       });
   });
 });
 
-app.get('/loginpage', (req, res) => {
-  res.render('loginpage');
+app.get('/login_page', (req, res) => {
+  res.render('login_page');
 });
 
 app.post('/', (req, res) => {
@@ -87,7 +87,7 @@ app.post('/', (req, res) => {
           else {
         
               
-              res.render('loginpage');
+              res.render('login_page');
               // res.send("<script>alert('없는 아이디 입니다.');</script>");
               console.log("check user_id in database")
           }
