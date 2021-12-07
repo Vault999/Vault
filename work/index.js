@@ -130,7 +130,7 @@ app.post('/login', (req, res) => {
 //======================================================
 
 app.get('/board', function (req, res) {
-  fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
+  fs.readFile('./views/html/list.ejs', 'utf8', function (err, data) {
     client.query('select * from board', function (err, results) {
       if (err) {
         res.send(err)
@@ -153,7 +153,7 @@ app.get('/board/delete/:id', function (req, res) {
   
 
 app.get('/board/insert', function (req, res) {
-    fs.readFile('./views/insert.html', 'utf8', function (err, data) {
+    fs.readFile('./views/html/createitem_page.html', 'utf8', function (err, data) {
         res.send(data)
         })
     })
@@ -172,7 +172,7 @@ app.post('/board/insert', function (req, res) {
     })
       
 app.get('/board/edit/:id', function (req, res) {
-    fs.readFile('./views/edit.ejs', 'utf8', function (err, data) {
+    fs.readFile('./views/html/edit.ejs', 'utf8', function (err, data) {
         client.query('select * from board where id = ?', [req.params.id], function (err, result) {
         res.send(ejs.render(data, {
             data: result[0]
