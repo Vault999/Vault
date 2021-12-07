@@ -5,7 +5,7 @@ const ejs = require('ejs');
 const mysql = require('mysql');
 require("dotenv").config();
 const bodyParser = require('body-parser');
-// const { connect } = require('http2');
+const { connect } = require('http2');
 const session = require('express-session');
 
 const client = mysql.createConnection({
