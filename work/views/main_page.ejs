@@ -43,7 +43,11 @@
                         <% } else if(loginState == "okay") { %>
                         <img onclick="popMypage()" href="#" src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
                         </div>
-                        <div class="mypage" id="mypage">
+                        <% } %>
+                    </div>
+                    <div class="mypage" id="mypage">
+                        <div class="wrap_mypage">
+                            <div class="profile_img"></div>
                             <div class="mypage_top"></div>
                             <div class="mypage_bottom">
                                 <form action="/logout" method="POST">
@@ -51,10 +55,6 @@
                                 </form>
                             </div>
                         </div>
-                        <% } %>
-                        
-
-                      
                     </div>
                 </div>
             </div>
