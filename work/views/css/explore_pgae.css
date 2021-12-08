@@ -5,6 +5,8 @@
 .main .wrap_nav {
     height: 100%;
     width: 15%;
+    display: flex;
+    align-items: center;
 }
 
 .nav {
@@ -44,7 +46,7 @@
     background-color: black;
     color: white;
     width: 100%;
-    height: 8%;
+    height: 6%;
 }
 
 .nav_category2 div{
@@ -60,7 +62,7 @@
     background-color: black;
     color: white;
     width: 100%;
-    height: 15%;
+    height: 17%;
 }
 
 .nav_category3 div{
@@ -105,6 +107,13 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+}
+.wrap_goods2 {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.wrap_goods2::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .goods {
