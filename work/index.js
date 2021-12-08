@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const router = express.Router();
 const ejs = require('ejs');
 const mysql = require('mysql');
 require("dotenv").config();
