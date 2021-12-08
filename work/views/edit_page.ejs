@@ -218,14 +218,15 @@
           width: 60%;
           height: 60%;
       }
-      #createNFTmain { /*크리에이트페이지 메인설정*/
+      /* ============================= */
+
+     #createNFTmain { /*크리에이트페이지 메인설정*/
     display: flex;
     align-content: center;
     justify-content: center;
     }
-    /* ============================= */
 
-    .createNFT-container { 
+    .createNFT-container { /*구조만 grid로 구현*/
         width: 60%;
         display: grid;
         grid-template-columns: 3fr 6fr 1fr;
@@ -242,6 +243,23 @@
         font-size: 1.3em; 
     }
 
+    
+    .mnstruc:nth-child(1) input {
+        
+        border: none;
+        background-color: rgb(255, 61, 45);
+        font-size: 20px;
+        color: black;
+    }
+
+    .mnstruc:nth-child(1) label {
+        
+        border: none;
+        background-color: rgb(255, 61, 45);
+        font-size: 20px;
+        
+    }
+
     .mnstruc:nth-child(3) { /*create_imgupload*/
         grid-row: 2/4;
         background-color: rgb(255, 255, 255);
@@ -251,7 +269,7 @@
         justify-content: center;
         align-items: center;
     }
-
+    
     #uploadimg {  /*이미지 사이즈조절*/
         width: 50%;
         height: 80%;
@@ -268,6 +286,24 @@
         font-size: 1em;
     }
 
+    .mnstruc:nth-child(4) input { /*create_nftNum*/
+    width: 300px;
+    border: none;
+    background-color: rgb(80, 186, 248);
+    font-size: 20px;
+    text-align: center;
+    }
+
+    .mnstruc:nth-child(4) label { /*create_nftNum*/
+    
+        border: none;
+        background-color: rgb(80, 186, 248);
+        font-size: 20px;
+    }
+    
+
+
+
     .mnstruc:nth-child(5) { /*create_nftPrice*/
         background-color: rgb(238, 238, 238);
         border-right: 5px solid black;
@@ -276,6 +312,20 @@
         align-items: center;
         /* font-family:Arial, Helvetica, sans-serif; */
         font-size: 1em;
+    }
+
+    .mnstruc:nth-child(5) input { /*create_nftPrice*/
+        width: 300px;
+        border: none;
+        background-color: rgb(238, 238, 238);
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .mnstruc:nth-child(5) label { /*create_nftPrice*/
+        border: none;
+        background-color: rgb(238, 238, 238);
+        font-size: 20px;
     }
 
     .mnstruc:nth-child(6) { /*공백부분*/
@@ -293,6 +343,14 @@
         font-size: 1.3em;
     }
 
+    /* .mnstruc:nth-child(7) input {
+        width: 500px;
+        border: none;
+        background-color: rgb(80, 186, 248);
+        font-size: 20px;
+        text-align: center;
+    } */
+
     .mnstruc:nth-child(8) { /*create_nftDescrip*/
         grid-column: 1/3;
         background-color: rgb(238, 238, 238);
@@ -303,6 +361,20 @@
         align-items: center;
         /* font-family:Arial, Helvetica, sans-serif; */
         font-size: 1em;
+    }
+
+    .mnstruc:nth-child(8) input { /*create_nftDescrip*/
+        width: 500px;
+        border: none;
+        background-color: rgb(238, 238, 238);
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .mnstruc:nth-child(8) label { /*create_nftDescrip*/
+        border: none;
+        background-color: rgb(238, 238, 238);
+        font-size: 20px;
     }
 
     .mnstruc:nth-child(10) { /*windflow*/
@@ -330,6 +402,33 @@
         font-family:Arial, Helvetica, sans-serif;
         font-size: 1em; 
         width: 70px; /*제출버튼사이즈 조절*/
+    }
+
+    #contenthd3 {
+        grid-column: 1/3;
+        background-color: rgb(80, 186, 248);
+        border: 5px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* font-family:Arial, Helvetica, sans-serif; */
+        font-size: 1.3em;
+    }
+
+    #contenthd3 input {
+        width: 500px;
+        border: none;
+        background-color: rgb(80, 186, 248);
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #contenthd3 label {
+        
+        border: none;
+        background-color: rgb(80, 186, 248);
+        font-size: 20px;
+        
     }
     </style>
 </head>
@@ -364,8 +463,8 @@
             <div class="main" id="createNFTmain">
                 <div class="createNFT-container">
                     <div class="mnstruc" id="contenthd"> 
-                        <label>Id</label>
-                        <input type="text" name="id" value="<%= data.id %>" disabled >
+                        <label>Id : </label>
+                        <input type="text" name="id" value=" <%= data.id %>" disabled >
                     </div> 
                     <div class="mnstruc">
                         <img id="windflow">
@@ -374,11 +473,11 @@
                         <input name="myImage" type="file">
                     </div>
                     <div class="mnstruc" id="create_nftNum">
-                        <label>TITLE</label>
+                        <label>TITLE : </label>
                         <input type="text" name="title" value="<%= data.title %>">
                     </div>
                     <div class="mnstruc" id="create_nftPrice">
-                        <label>PRICE</label>
+                        <label>PRICE : </label>
                         <input type="text" name="price" value="<%= data.price %>">
                     </div>
                     <div class="mnstruc"></div>
@@ -386,11 +485,11 @@
                         Description
                     </div>
                     <div class="mnstruc" id="create_nftDescrip">
-                        <label>DESCRIPTION</label>
+                        <label>DESCRIPTION : </label>
                         <input type="text" name="description" value="<%= data.description %>">
                     </div>
-                    <div class="mnstruc" id="contenthd">
-                        <label>TAG</label>
+                    <div class="mnstruc" id="contenthd3">
+                        <label>TAG : </label>
                         <input type="text" name="tag" value="<%= data.tag %>" >
                     </div>
                     <div class="mnstruc">
