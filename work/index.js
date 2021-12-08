@@ -159,17 +159,21 @@ app.get('/board/insert', function (req, res) {
     })
 
 app.post('/board/insert', function (req, res) {
-    const body = req.body
+  
+    const body = req.body;
     
     client.query('insert into board (title, price, description, tag) values (?, ?, ?, ?);', [
-        body.title,
-        body.price,
-        body.description,
-        body.tag
-    ], function() {
-        res.redirect('/board')
-    })
-    })
+      body.title,
+      body.price,
+      body.description,
+      body.tag
+      ], function() {
+        res.redirect('/board');
+      }
+    );
+});
+
+    
       
 app.get('/board/edit/:id', function (req, res) {
     fs.readFile('./views/html/edit.ejs', 'utf8', function (err, data) {
@@ -182,11 +186,13 @@ app.get('/board/edit/:id', function (req, res) {
   })
 
 app.post('/board/edit/:id', function (req, res) {
-    const body = req.body
-    
-    client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
-        body.title, body.price, body.description, body.tag, req.params.id
+  const body = req.body
+  
+  client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
+    body.title, body.price, body.description, body.tag, req.params.id
     ], function () {
         res.redirect('/board')
-    })
-  })
+    }
+  )
+
+})
