@@ -131,7 +131,21 @@ app.post('/login', (req, res) => {
 //======================================================
 
 app.get('/board', function (req, res) {
-  fs.readFile('./views/html/list.ejs', 'utf8', function (err, data) {
+  fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
+    client.query('select * from board', function (err, results) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.send(ejs.render(data, {
+          data: results
+        }))
+      }
+    })
+  })
+})
+
+app.get('/test', function (req, res) {
+  fs.readFile('./views/test.ejs', 'utf8', function (err, data) {
     client.query('select * from board', function (err, results) {
       if (err) {
         res.send(err)
@@ -194,5 +208,27 @@ app.post('/board/edit/:id', function (req, res) {
         res.redirect('/board')
     }
   )
+
+})
+
+app.get('/board/page/:id', function (req, res) {
+  fs.readFile('./views/board_page.ejs', 'utf8', function (err, data) {
+      client.query('select * from board where id = ?', [req.params.id], function (err, result) {
+      res.send(ejs.render(data, {
+          data: result[0]
+      }))
+    })
+  })
+})
+
+app.post('/board/page/:id', function (req, res) {
+const body = req.body
+
+client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
+  body.title, body.price, body.description, body.tag, req.params.id
+  ], function () {
+      res.redirect('/board')
+  }
+)
 
 })

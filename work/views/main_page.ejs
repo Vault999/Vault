@@ -37,6 +37,14 @@
                     </div>
                     <div><a href="/board">Auction</a></div>
 
+                    <div>
+                        <% if(!loginState) { %>
+                        <a href="/login">TEST</a>
+                        <% } else if(loginState == "okay") { %>
+                        <a href="/test">TEST</a>
+                        <% } %>   
+                    </div>
+
                     <div class="mypage-container">
                         <% if(!loginState) { %>
                         <a href="/login"><img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"></a>

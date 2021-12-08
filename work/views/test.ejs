@@ -72,24 +72,20 @@
                       <th>PRICE</th>
                       <th>DESCRIPTION</th>
                       <th>TAG</th>
-                      <!-- <th>DELETE</th>   
-                      <th>EDIT</th> -->
+                      <th>DELETE</th>   
+                      <th>EDIT</th>
                     </tr>
                     <% data.forEach(function (item, index) { %>
                     <tr>
                       
                       <td><%= item.id %></td>
-                      <!-- <td><a href="/board/page/:id"><%= item.title %></a></td> -->
                       <td><a href=/board/page/<%= item.id%>><%= item.title %></a></td>
-
-
-
-                      <!-- <td><%= item.title %></td> -->
                       <td><%= item.price %></td>
+                      <!-- <td><%= item.genre %></td> -->
                       <td><%= item.description %></td>
                       <td><%= item.tag %></td>
-                      <!-- <td><a href="/board/delete/<%= item.id%>">DELETE</a></td>
-                      <td><a href="/board/edit/<%= item.id %>">EDIT</a></td> -->
+                      <td><a href="/board/delete/<%= item.id%>">DELETE</a></td>
+                      <td><a href="/board/edit/<%= item.id %>">EDIT</a></td>
                     </tr>
                     <% }); %>
                 
