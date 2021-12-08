@@ -172,7 +172,7 @@ app.post('/board/insert', function (req, res) {
     })
       
 app.get('/board/edit/:id', function (req, res) {
-    fs.readFile('./views/html/edit.ejs', 'utf8', function (err, data) {
+    fs.readFile('./views/editcopy1.ejs', 'utf8', function (err, data) {
         client.query('select * from board where id = ?', [req.params.id], function (err, result) {
         res.send(ejs.render(data, {
             data: result[0]
