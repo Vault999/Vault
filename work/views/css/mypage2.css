@@ -35,19 +35,31 @@
     background-color: #EEEEEE;
 }
 
-.profile_middle{
-    width: 100%;
-    height: 15%;
-    background-color: #FF4228;
-    border-top: 8px black solid;
-    border-bottom: 8px black solid;
-
-}
-
 .profile_bottom{
     width: 100%;
     height: 50%;
     background-color: #55B8FF;
+}
+
+.top_line {
+    background-color: #FF4228;
+    border-bottom: 8px black solid;
+    width: 100%;
+    height: 25%;
+
+}
+
+.middle_space{
+    background-color: #EEEEEE;
+    width: 100%;
+    height: 50%;
+    border-bottom: 8px black solid;
+}
+
+.bottom_line {
+    background-color: #55B8FF;
+    width: 100%;
+    height: 25%;
 }
 
 .wrap_main {
