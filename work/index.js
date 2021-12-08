@@ -154,7 +154,7 @@ app.get('/board/delete/:id', function (req, res) {
   
 
 app.get('/board/insert', function (req, res) {
-    fs.readFile('./views/html/createitem_page.html', 'utf8', function (err, data) {
+    fs.readFile('./views/html/createitem_page.ejs', 'utf8', function (err, data) {
         res.send(data)
         })
     })
@@ -177,7 +177,7 @@ app.post('/board/insert', function (req, res) {
     
       
 app.get('/board/edit/:id', function (req, res) {
-    fs.readFile('./views/editcopy1.ejs', 'utf8', function (err, data) {
+    fs.readFile('./views/edit_page.ejs', 'utf8', function (err, data) {
         client.query('select * from board where id = ?', [req.params.id], function (err, result) {
         res.send(ejs.render(data, {
             data: result[0]
