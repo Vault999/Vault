@@ -154,7 +154,7 @@ app.get('/board/delete/:id', function (req, res) {
   
 
 app.get('/board/insert', function (req, res) {
-    fs.readFile('./views/html/createitem_page.ejs', 'utf8', function (err, data) {
+    fs.readFile('./views/createitem_page.ejs', 'utf8', function (err, data) {
         res.send(data)
         })
     })
