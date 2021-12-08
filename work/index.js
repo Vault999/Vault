@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const router = express.Router();
 const ejs = require('ejs');
 const mysql = require('mysql');
 require("dotenv").config();
 const bodyParser = require('body-parser');
-// const { connect } = require('http2');
+const { connect } = require('http2');
 const session = require('express-session');
 
 const client = mysql.createConnection({
@@ -159,17 +160,21 @@ app.get('/board/insert', function (req, res) {
     })
 
 app.post('/board/insert', function (req, res) {
-    const body = req.body
+  
+    const body = req.body;
     
     client.query('insert into board (title, price, description, tag) values (?, ?, ?, ?);', [
-        body.title,
-        body.price,
-        body.description,
-        body.tag
-    ], function() {
-        res.redirect('/board')
-    })
-    })
+      body.title,
+      body.price,
+      body.description,
+      body.tag
+      ], function() {
+        res.redirect('/board');
+      }
+    );
+});
+
+    
       
 app.get('/board/edit/:id', function (req, res) {
     fs.readFile('./views/editcopy1.ejs', 'utf8', function (err, data) {
@@ -182,11 +187,13 @@ app.get('/board/edit/:id', function (req, res) {
   })
 
 app.post('/board/edit/:id', function (req, res) {
-    const body = req.body
-    
-    client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
-        body.title, body.price, body.description, body.tag, req.params.id
+  const body = req.body
+  
+  client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
+    body.title, body.price, body.description, body.tag, req.params.id
     ], function () {
         res.redirect('/board')
-    })
-  })
+    }
+  )
+
+})
