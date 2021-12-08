@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>create_item_page</title>
-    <link rel="stylesheet" href="../css/createitem.css" type="text/css">
-    <link rel="stylesheet" href="../css/common.css" type="text/css">
+    <title>explore_pgae</title>
+    <link rel="stylesheet" href="../css/explore_pgae.css">
+    <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
     <header>
@@ -27,7 +27,7 @@
                     <div><a href="/board/insert">CREATE</a></div>
                     <div class="mypage-container">
                         <a>
-                            <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
+                            <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">                            
                         </a>
                     </div>
                 </div>
@@ -35,50 +35,64 @@
         </div>
     </header>
     <main>
-        <form method="post">
-            <div class="main" id="createNFTmain">
-                <div class="createNFT-container">
-                    <div class="mnstruc" id="contenthd"> 
-                        <label>Id</label>
-                        <input type="text" name="id" value="<%= data.id %>" disabled >
-                    </div> 
-                    <div class="mnstruc">
-                        <img id="windflow">
+        <div class="main">
+            <div class="wrap_nav">
+                <div class="nav">
+                    <div class="nav_bar">filter</div> <!-- 8 -->
+                    <div class="nav_bar">status</div> <!-- 8 -->
+                    <div class="nav_category1">       <!-- 20 -->
+                        <div>New</div>
+                        <div>Buy now</div>
+                        <div>End soon</div>
                     </div>
-                    <div class="mnstruc" id="create_imgupload">
-                        <input name="myImage" type="file">
+                    <div class="nav_bar">price</div> <!-- 8 -->
+                    <div class="nav_category2">      <!-- 8 -->
+                        <div>min to max</div>
                     </div>
-                    <div class="mnstruc" id="create_nftNum">
-                        <label>TITLE</label>
-                        <input type="text" name="title" value="<%= data.title %>">
+                    <div class="nav_bar">collection</div> <!-- 8 -->
+                    <div class="nav_category3">          <!-- 15 -->
+                        <div>dogesoundclub</div>
+                        <div>emates</div>
+                        <div>joseondynasty</div>
                     </div>
-                    <div class="mnstruc" id="create_nftPrice">
-                        <label>PRICE</label>
-                        <input type="text" name="price" value="<%= data.price %>">
-                    </div>
-                    <div class="mnstruc"></div>
-                    <div class="mnstruc" id="contenthd">
-                        Description
-                    </div>
-                    <div class="mnstruc" id="create_nftDescrip">
-                        <label>DESCRIPTION</label>
-                        <input type="text" name="description" value="<%= data.description %>">
-                    </div>
-                    <div class="mnstruc" id="contenthd">
-                        <label>TAG</label>
-                        <input type="text" name="tag" value="<%= data.tag %>" >
-                    </div>
-                    <div class="mnstruc">
-                        <img id="windflow" src="">
-                        <!--windflow이미지 바꿔야!!!-->
-                    </div>
-                    <div class="mnstruc">
-                        <input class="submitButt" id="create_submit" type ="submit" value="Submit">
-                        <!-- submit폰트? 하양바탕에 검정글씨 찾아야... -->
+                    <div class="nav_bar">categories</div> <!-- 10 -->
+                    <div class="nav_category4">           <!-- 10 -->
+                        <div>Pictureprofile</div>
+                        <div>PlaytoEarn</div>
+                        <div>Art</div>
+                        <div>Collectibles</div>
                     </div>
                 </div>
             </div>
-        </form>
+            <div class="wrap_main">
+                <table border="1">
+                    <tr>
+                      <th>ID</th>
+                      <th>TITLE</th>
+                      <th>PRICE</th>
+                      <th>DESCRIPTION</th>
+                      <th>TAG</th>
+                      <th>DELETE</th>   
+                      <th>EDIT</th>
+                    </tr>
+                    <% data.forEach(function (item, index) { %>
+                    <tr>
+                      
+                      <td><%= item.id %></td>
+                      <td><a href=/board/page/<%= item.id%>><%= item.title %></a></td>
+                      <td><%= item.price %></td>
+                      <!-- <td><%= item.genre %></td> -->
+                      <td><%= item.description %></td>
+                      <td><%= item.tag %></td>
+                      <td><a href="/board/delete/<%= item.id%>">DELETE</a></td>
+                      <td><a href="/board/edit/<%= item.id %>">EDIT</a></td>
+                    </tr>
+                    <% }); %>
+                
+                  
+                  </table>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="footer">
@@ -130,6 +144,8 @@
                 </div>
             </div>
         </div>
-    </footer>    
+    </footer>
+
+    
 </body>
 </html>
