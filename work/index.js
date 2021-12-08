@@ -44,8 +44,8 @@ app.listen(port, host, () => {
 
 app.get('/', (req, res)=>{
   res.render('main_page', {loginState:req.session.loginState, loginedId:req.session.loginedId}); 
-  console.log(req.session.loginState);
-  console.log(req.session.loginedId);
+  // console.log(req.session.loginState);
+  // console.log(req.session.loginedId);
 });
 
 app.post('/logout', (req, res) => {
