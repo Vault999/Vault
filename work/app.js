@@ -95,7 +95,7 @@ app.post('/signupinfo', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('login_page');
+  res.render('login_page', {loginState:req.session.loginState, id:req.session.loginedId});
 });
 
 app.post('/login', (req, res) => {
@@ -158,10 +158,11 @@ app.get('/test', function (req, res) {
         res.send(err)
       } else {
         res.send(ejs.render(data, {
-          data: results
-        }))
+          data: results, loginState:req.session.loginState, id:req.session.loginedId}
+        ))
+        }
       }
-    })
+    )
   })
 })
 
