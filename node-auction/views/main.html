@@ -3,30 +3,36 @@
 
 {% block content %}
   <div class="timeline">
-    <h2>경매 진행 목록</h2>
-    <table id="good-list">
-      <tr>
-        <th>상품명</th>
-        <th>이미지</th>
-        <th>시작 가격</th>
-        <th>종료 시간</th>
-        <th>입장</th>
-      </tr>
-      {% for good in goods %}
-        <tr>
-          <td>{{good.name}}</td>
-          <td>
-            <img src="/img/{{good.img}}">
-          </td>
-          <td>{{good.price}}</td>
-          <td class="time" data-start="{{good.createdAt}}">00:00:00</td>
-          <td>
-            <a href="/good/{{good.id}}" class="enter btn">입장</a>
-          </td>
-        </tr>
-      {% endfor %}
-    </table>
-  </div>
+    <div class="list-timeline">
+      <div class="h2">
+        <h2>경매 진행 목록</h2>
+      </div>
+      <div class="table">
+        <table id="good-list" class="good-list">
+          <tr>
+            <th class="goods-name">상품명</th>
+            <th class="goods-img">이미지</th>
+            <th class="goods-sprice">시작 가격</th>
+            <th class="goods-deadline">종료 시간</th>
+            <th class="goods-enter">입장</th>
+          </tr>
+          {% for good in goods %}
+            <tr>
+              <td>{{good.name}}</td>
+              <td>
+                <img src="/img/{{good.img}}">
+              </td>
+              <td>{{good.price}}</td>
+              <td class="time" data-start="{{good.createdAt}}">00:00:00</td>
+              <td>
+                <a href="/good/{{good.id}}" class="enter btn">입장</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div> <!-- table-->
+    </div>   <!-- list timeline -->
+  </div>   <!-- timeline -->
   <script src="https://unpkg.com/event-source-polyfill/src/eventsource.min.js"></script>
   <script>
     const es = new EventSource('/sse');
