@@ -16,7 +16,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3300;
+const port = 3200;
 const host = '127.0.0.1';
 
 app.use(session({
@@ -151,20 +151,7 @@ app.get('/board', function (req, res) {
   })
 })
 
-app.get('/mypage', function (req, res) {
-  fs.readFile('./views/mypage.ejs', 'utf8', function (err, data) {
-    client.query('select * from board', function (err, results) {
-      if (err) {
-        res.send(err)
-      } else {
-        res.send(ejs.render(data, {
-          data: results, loginState:req.session.loginState, id:req.session.loginedId}
-        ))
-        }
-      }
-    )
-  })
-})
+
 
 
 app.get('/board/delete/:id', function (req, res) {
@@ -176,10 +163,11 @@ app.get('/board/delete/:id', function (req, res) {
   
 
 app.get('/board/insert', function (req, res) {
-    fs.readFile('./views/createitem_page.ejs', 'utf8', function (err, data) {
-        res.send(data)
-        })
-    })
+  res.render('createitem_page', {loginState:req.session.loginState, loginedId:req.session.loginedId})  
+  // fs.readFile('./views/createitem_page.ejs', 'utf8', function (err, data) {
+  //   res.send(data)
+  //  });
+});
 
 app.post('/board/insert', function (req, res) {
   
@@ -239,4 +227,24 @@ client.query('update board SET title=?, price=?, description=?, tag=? where id=?
   }
 )
 
+})
+
+app.get('/auction', (req, res)=>{
+  res.render('main_page', {loginState:req.session.loginState, loginedId:req.session.loginedId}); 
+});
+
+
+app.get('/mypage', function (req, res) {
+  fs.readFile('./views/mypage.ejs', 'utf8', function (err, data) {
+    client.query('select * from board', function (err, results) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.send(ejs.render(data, {
+          data: results, loginState:req.session.loginState, id:req.session.loginedId}
+        ))
+        }
+      }
+    )
+  })
 })
