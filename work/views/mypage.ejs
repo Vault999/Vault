@@ -109,72 +109,21 @@
                 <!-- </div> -->
                 <div class="wrap_goods">
                     <div class="wrap_goods2">
+
+                        <% data.forEach(function (item, index) { %>
                         <div class="goods">
                             <div class="img_area">
                                 <img src="/work/views/assets/images/man.png">
                             </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
+                            <div class="info_area">
+                                <div><a href=/board/page/<%= item.id%>><%= item.title %></a></div>
+                                <div><%= item.price %></div>
+                                <div><a href="/board/delete/<%= item.id%>">DELETE</a></div>
+                                <div><a href="/board/edit/<%= item.id%>">EDIT</a></div>
                             </div>
-                            <div class="info_area"></div>
                         </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
-                        <div class="goods">
-                            <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
-                            </div>
-                            <div class="info_area"></div>
-                        </div>
+                        <% }); %>
+
                     </div>
                 </div>
             </div>
