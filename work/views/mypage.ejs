@@ -27,12 +27,12 @@
             </div>
             <div class="headRight">
                 <div class="headRight_container">
-                    <div><a href="/board">EXPLORE</a></div>
+                    <div><a href="/explore">EXPLORE</a></div>
                     <div>
                         <% if(!loginState) { %>
                         <a href="/login">CREATE </a>
                         <% } else if(loginState == "okay") { %>
-                        <a href="/board/insert">CREATE</a>
+                        <a href="/board/create">CREATE</a>
                         <% } %>
                     </div>
                     <div><a href="/board">AUCTION</a></div>

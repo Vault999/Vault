@@ -169,13 +169,15 @@ app.get('/mypage', function (req, res) {
 
 app.get('/board/delete/:id', function (req, res) {
     client.query('delete from board where id=?', [req.params.id], function () {
-      res.redirect('/board')
+      res.redirect('/explore')
     })
   })
 
   
 
 app.get('/board/create', function (req, res) {
+  //   res.render('createitem_page', {loginState:req.session.loginState, id:req.session.loginedId})
+  // })
     fs.readFile('./views/createitem_page.ejs', 'utf8', function (err, data) {
         res.send(data)
         })
@@ -191,7 +193,7 @@ app.post('/board/create', function (req, res) {
       body.description,
       body.tag
       ], function() {
-        res.redirect('/board');
+        res.redirect('/explore');
       }
     );
 });
@@ -213,7 +215,7 @@ app.post('/board/edit/:id', function (req, res) {
   client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
     body.title, body.price, body.description, body.tag, req.params.id
     ], function () {
-        res.redirect('/board')
+        res.redirect('/explore')
     }
   )
 
@@ -235,7 +237,7 @@ const body = req.body
 client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
   body.title, body.price, body.description, body.tag, req.params.id
   ], function () {
-      res.redirect('/board')
+      res.redirect('/explore')
   }
 )
 
