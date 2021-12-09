@@ -16,7 +16,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3400;
+const port = 3800;
 const host = '127.0.0.1';
 
 app.use(session({
@@ -63,7 +63,7 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/signup', (req,res) => {
-  res.render('signup_page');
+  res.render('signup_page', {loginState:req.session.loginState, loginedId:req.session.loginedId});
 });
 
 app.post('/signupinfo', (req, res) => {
