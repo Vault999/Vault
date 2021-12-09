@@ -7,6 +7,8 @@
     <title>create_item_page</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/createitem.css">
+    <link rel="stylesheet" href="../css/mypage.css">
+    <script src="./myPagePop.js"></script>
 </head>
 <body>
     <header>
@@ -16,29 +18,44 @@
                     <div class="logo-container">
                         <a href="/"><img src="../assets/logo/toplogo.svg"></a>
                     </div>
-                    <div class="headSearch-container">
-                        <input type="search" placeholder="SEARCH">
-                    </div>
+                    <form action="/" method="get"></form>
+                        <div class="headSearch-container">
+                            <input type="search" placeholder="SEARCH">
+                        </div>
+                    </form>
                 </div>
             </div>
+            
             <div class="headRight">
                 <div class="headRight_container">
                     <div><a href="/board">EXPLORE</a></div>
                     <div><a href="/board/insert">CREATE</a></div>
+                    <div><a href="/board">AUCTION</a></div>
+
                     <div class="mypage-container">
-                        <a>
-                            <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
-                        </a>
+                        <img onclick="popMypage()" href="#" src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
+                    </div>
+                    <div class="mypage" id="mypage">
+                        <div class="wrap_mypage">
+                            <div class="profile_img"></div>
+                            <div class="mypage_top"></div>
+                            <div class="mypage_bottom">
+                                <form action="/logout" method="POST">
+                                    <button type="submit">로그아웃</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>    
+
         </div>
     </header>
     <main>
         <form method="post">
             <div class="main" id="createNFTmain">
                 <div class="createNFT-container">
-                    <div class="mnstruc" id="contenthd"> 
+                    <div class="mnstruc" id="contenthd1"> 
                         create new item
                     </div> 
                     <div class="mnstruc">
@@ -48,24 +65,24 @@
                         <input name="myImage" type="file">
                     </div>
                     <div class="mnstruc" id="create_nftNum">
-                        <label>TITLE</label>
+                        <label>TITLE : </label>
                         <input type="text" name="title">
                     </div>
                     <div class="mnstruc" id="create_nftPrice">
-                        <label>PRICE</label>
+                        <label>PRICE : </label>
                         <input type="text" name="price">
                     </div>
                     <div class="mnstruc"></div>
-                    <div class="mnstruc" id="contenthd">
+                    <div class="mnstruc" id="contenthd2">
                         Description
                     </div>
                     <div class="mnstruc" id="create_nftDescrip">
-                        <label>DESCRIPTION</label>
-                        <input type="text" name="description">
+                        <label>DESCRIPTION : </label>
+                        <input type="text" name="description" >
                     </div>
-                    <div class="mnstruc" id="contenthd">
-                        <label>TAG</label>
-                        <input type="text" name="tag" />
+                    <div class="mnstruc" id="contenthd3">
+                        <label>TAG : </label>
+                        <input type="text" name="tag">
                     </div>
                     <div class="mnstruc">
                         <img id="windflow" src="">

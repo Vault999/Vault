@@ -1,7 +1,0 @@
-{
-    "host": "localhost",
-    "user" : "root",
-    "password" : "thdrn48",
-    "database" : "vault999",
-    "connectionLimit" : 100  
-}

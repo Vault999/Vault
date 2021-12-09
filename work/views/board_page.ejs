@@ -286,7 +286,7 @@
         font-size: 1em;
     }
 
-    .mnstruc:nth-child(4) input { /*create_nftNum*/
+    .mnstruc:nth-child(4) p { /*create_nftNum*/
     width: 300px;
     border: none;
     background-color: rgb(80, 186, 248);
@@ -314,7 +314,7 @@
         font-size: 1em;
     }
 
-    .mnstruc:nth-child(5) input { /*create_nftPrice*/
+    .mnstruc:nth-child(5) p { /*create_nftPrice*/
         width: 300px;
         border: none;
         background-color: rgb(238, 238, 238);
@@ -363,7 +363,7 @@
         font-size: 1em;
     }
 
-    .mnstruc:nth-child(8) input { /*create_nftDescrip*/
+    .mnstruc:nth-child(8) p { /*create_nftDescrip*/
         width: 500px;
         border: none;
         background-color: rgb(238, 238, 238);
@@ -415,7 +415,7 @@
         font-size: 1.3em;
     }
 
-    #contenthd3 input {
+    #contenthd3 p {
         width: 500px;
         border: none;
         background-color: rgb(80, 186, 248);
@@ -474,11 +474,11 @@
                     </div>
                     <div class="mnstruc" id="create_nftNum">
                         <label>TITLE : </label>
-                        <input type="text" name="title" value="<%= data.title %>">
+                        <p><%= data.title %></p>
                     </div>
                     <div class="mnstruc" id="create_nftPrice">
                         <label>PRICE : </label>
-                        <input type="text" name="price" value="<%= data.price %>">
+                        <p><%= data.price %></p>
                     </div>
                     <div class="mnstruc"></div>
                     <div class="mnstruc" id="contenthd">
@@ -486,11 +486,11 @@
                     </div>
                     <div class="mnstruc" id="create_nftDescrip">
                         <label>DESCRIPTION : </label>
-                        <input type="text" name="description" value="<%= data.description %>">
+                        <p><%= data.description %></p>
                     </div>
                     <div class="mnstruc" id="contenthd3">
                         <label>TAG : </label>
-                        <input type="text" name="tag" value="<%= data.tag %>" >
+                        <p><%= data.tag %></p>
                     </div>
                     <div class="mnstruc">
                         <img id="windflow" src="">
