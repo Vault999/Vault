@@ -431,6 +431,8 @@
         
     }
     </style>
+    <link rel="stylesheet" href="../css/mypage.css">
+    <script src="./myPagePop.js"></script>
 </head>
 <body>
     <header>
@@ -438,21 +440,57 @@
             <div class="headLeft">
                 <div class="headLeft_container">
                     <div class="logo-container">
-                        <a href="/"><img src="/assets/logo/toplogo.svg"></a>
+                        <a href="/"><img src="../assets/logo/toplogo.svg"></a>
                     </div>
-                    <div class="headSearch-container">
-                        <input type="search" placeholder="SEARCH">
-                    </div>
+                    <form action="/" method="get"></form>
+                        <div class="headSearch-container">
+                            <input type="search" placeholder="SEARCH">
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="headRight">
                 <div class="headRight_container">
                     <div><a href="/board">EXPLORE</a></div>
-                    <div><a href="/board/insert">CREATE</a></div>
+                    <div>
+                        <% if(!loginState) { %>
+                        <a href="/login">CREATE </a>
+                        <% } else if(loginState == "okay") { %>
+                        <a href="/board/insert">CREATE</a>
+                        <% } %>
+                    </div>
+                    <div><a href="/board">AUCTION</a></div>
+
+                    <div>
+                        <% if(!loginState) { %>
+                        <a href="/login">MYPAGE</a>
+                        <% } else if(loginState == "okay") { %>
+                        <a href="/mypage">MYPAGE</a>
+                        <% } %>   
+                    </div>
+
                     <div class="mypage-container">
-                        <a>
-                            <img src="/assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
-                        </a>
+                        <% if(!loginState) { %>
+                        <a href="/login"><img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"></a>
+                        <% } else if(loginState == "okay") { %>
+                        <img onclick="popMypage()" href="#" src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="mypage" id="mypage">
+                        <div class="wrap_mypage">
+                            <div class="profile_img"></div>
+                            <div class="mypage_top"></div>
+                            <div class="mypage_bottom">
+                                <div>vault</div>
+                                <div>$490.51</div>
+
+                                
+                                <form action="/logout" method="POST">
+                                    <button type="submit">로그아웃</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
