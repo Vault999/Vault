@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/main_page.css">
     <link rel="stylesheet" href="../css/mypage.css">
-    <script src="./main_page.js"></script>
+    <script src="./myPagePop.js"></script>
 </head>
 <body>
     <header>
@@ -35,7 +35,7 @@
                         <a href="/board/insert">CREATE</a>
                         <% } %>
                     </div>
-                    <div><a href="/board">Auction</a></div>
+                    <div><a href="/board">AUCTION</a></div>
 
                     <div>
                         <% if(!loginState) { %>
@@ -58,6 +58,9 @@
                             <div class="profile_img"></div>
                             <div class="mypage_top"></div>
                             <div class="mypage_bottom">
+                                
+
+                                
                                 <form action="/logout" method="POST">
                                     <button type="submit">로그아웃</button>
                                 </form>

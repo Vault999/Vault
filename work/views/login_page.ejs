@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +7,9 @@
     <title>Login</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/signINpage.css">
+    <link rel="stylesheet" href="../css/mypage.css">
+    <script src="./myPagePop.js"></script>
 </head>
-
 <body>
     <header>
         <div class="header">
@@ -17,6 +17,55 @@
                 <div class="headLeft_container">
                     <div class="logo-container">
                         <a href="/"><img src="../assets/logo/toplogo.svg"></a>
+                    </div>
+                    <form action="/" method="get"></form>
+                        <div class="headSearch-container">
+                            <input type="search" placeholder="SEARCH">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="headRight">
+                <div class="headRight_container">
+                    <div><a href="/board">EXPLORE</a></div>
+                    <div>
+                        <% if(!loginState) { %>
+                        <a href="/login">CREATE </a>
+                        <% } else if(loginState == "okay") { %>
+                        <a href="/board/insert">CREATE</a>
+                        <% } %>
+                    </div>
+                    <div><a href="/board">AUCTION</a></div>
+
+                    <div>
+                        <% if(!loginState) { %>
+                        <a href="/login">TEST</a>
+                        <% } else if(loginState == "okay") { %>
+                        <a href="/test">TEST</a>
+                        <% } %>   
+                    </div>
+
+                    <div class="mypage-container">
+                        <% if(!loginState) { %>
+                        <a href="/login"><img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"></a>
+                        <% } else if(loginState == "okay") { %>
+                        <img onclick="popMypage()" href="#" src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="mypage" id="mypage">
+                        <div class="wrap_mypage">
+                            <div class="profile_img"></div>
+                            <div class="mypage_top"></div>
+                            <div class="mypage_bottom">
+                                
+
+                                
+                                <form action="/logout" method="POST">
+                                    <button type="submit">로그아웃</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,7 +100,57 @@
             </div> 
         </div>
     </main>
-
+    <footer>
+        <div class="footer">
+            <div class="footerLeft">
+                <div class="footerLeft_container">
+                    <div class="vault">
+                        <p>VAULT
+                        <br>THE KLAYTN NETWORK'S FIRST AND LARGEST
+                        <br>DIGITAL MARKETPLACE FOR CRYPTO COLLECTIBLES
+                        <br>AND NON-FUNGIBLE TOKENS (NFTs).
+                        <br>BUY, SELL, AND DISCOVER EXCLUSIVE DIGITAL ITEMS.</p>
+                    </div>
+                    <div class="suggestions">
+                        <p>SUGGESTIONS
+                        <br>DISCORD COMMUNITY
+                        <br>BLOG
+                        <br>DOCS
+                        <br>NEWSLETTER
+                        </p>
+                    </div>
+                    <div class="resources">
+                        <p>resources
+                        <br>HELP CENTER
+                        <br>PLATFORM STATUS
+                        <br>PARTNERS
+                        <br>GAS-FREE MARKETPLACE
+                        </p>
+                    </div>
+                    <div class="company">
+                        <p>COMPANY
+                        <br>ABOUT
+                        <br>CAREERS
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footerRight">
+                <div class="footerRight_container">
+                    <div class="empty_space"></div>
+                    <div class="join_community">
+                        <div id="join_p">Join THE COMMUNITY</div>
+                        <div id="join_i">
+                            <div><img src="../assets/icons/Twitter - Negative.svg"></div>
+                            <div><img src="../assets/icons/Discord - Negative.svg"></div>
+                            <div><img src="../assets/icons/Instagram - Negative.svg"></div>
+                            <div><img src="../assets/icons/Telegram - Negative.svg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script>
     //     var empJ = /\s/g;
 	// // 비밀번호 정규식

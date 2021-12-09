@@ -155,7 +155,6 @@ router.get('/list', isLoggedIn, async (req, res, next) => {
       include: { model: Auction },
       order: [[{ model: Auction }, 'bid', 'DESC']],
     });
-    // console.log(goods);
     res.render('list', { title: '낙찰 목록 - NodeAuction', goods });
   } catch (error) {
     console.error(error);
