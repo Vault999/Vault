@@ -1,11 +1,31 @@
 @font-face {
-    src: url("./PermanentMarker-Regular.ttf") ;
-    font-family: "PermanentMarker-Regular";
+    font-family: "WalterTurncoat-Regular"; /*description*/
+    src: url("../assets/fonts/WalterTurncoat-Regular.ttf");
 }
 
 @font-face {
-    font-family: "DungGeunMo";
-    src: url("../genesisFunction/images/font/DungGeunMo.ttf");
+    font-family: "WendyOne-Regular"; /*header*/
+    src: url("../assets/fonts/WendyOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JandaCurlygirlPop-5r4V"; /*white&black*/
+    src: url("../assets/fonts/JandaCurlygirlPop-5r4V.ttf");
+}
+
+@font-face {
+    font-family: "FhaBroknGothicBustdaNc-eDpe"; /*title*/
+    src: url("../assets/fonts/FhaBroknGothicBustdaNc-eDpe.ttf");
+}
+
+@font-face {
+    font-family: "Smooch-Regular"; /*title*/
+    src: url("../assets/fonts/Smooch-Regular.ttf");
+}
+
+@font-face {
+    font-family: "CherryBomb-Regular"; /*title*/
+    src: url("../assets/fonts/CherryBomb-Regular.ttf");
 }
 
 * {
@@ -14,7 +34,7 @@
     box-sizing: border-box;
     list-style: none; /*리스트 기호 지우기*/
     text-decoration: none; /*밑줄지우기*/
-    background-color: #FFEB3C;
+    background-color: rgb(255, 239, 59);
 }
 
 body {
@@ -28,6 +48,10 @@ body {
     height: 12vh;
     display: flex;
     font-family: 'WalterTurncoat-Regular.ttf';
+    font-size: 1.5em;
+    color: red;
+    justify-content: space-between;
+    
 }
 
 .headLeft {
@@ -60,16 +84,30 @@ body {
 .headSearch-container{
     width: 70%;
     height: 100%;
+    padding-left: 30px;
     display: flex;
     align-items: center;
 }
 
 .headSearch-container input{
     background-color: white;
-    border: solid 3px rgb(206, 204, 204);
+    background-image: url("../assets/icons/magnifyingGlass.png");
+    opacity: 0.9;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    padding-left: 40px;
+    border: solid 5px rgb(206, 204, 204);
+    outline: none;
     width: 100%;
     height: 60%;
+    font-family: 'WalterTurncoat-Regular';
+    font-size: 0.7em;
 }
+
+#searching:hover, #searching:focus {
+    box-shadow: 0 10px 10px rgba(206, 204, 204, 0.075) inset, 0 0 8px rgba(190, 188, 188, 0.6);
+}
+
 /* IE의 경우 */
 input::-ms-clear,
 input::-ms-reveal{
@@ -84,8 +122,9 @@ input::-webkit-search-results-decoration{
 }
 
 .headRight {
-    width: 65%;
+    width: 55%;
     height: 100%;
+    position: relative;
 }
 
 .headRight_container{
@@ -94,6 +133,14 @@ input::-webkit-search-results-decoration{
     align-items: center;
     height: 100%;
     width: 100%;
+    position: absolute;
+    font-family: "CherryBomb-Regular";
+    font-size: 0.8em;
+    color: gray;
+}
+
+#menu:hover, #menu:focus {
+    color: red;
 }
 
 .mypage-container img{

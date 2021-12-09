@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>explore_pgae</title>
-    <link rel="stylesheet" href="../css/explore_pgae.css">
+    <link rel="stylesheet" href="../css/explore_page.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/mypage.css">
+    <script src="./myPagePop.js"></script>
 </head>
 <body>
     <header>
@@ -16,19 +18,55 @@
                     <div class="logo-container">
                         <a href="/"><img src="../assets/logo/toplogo.svg"></a>
                     </div>
-                    <div class="headSearch-container">
-                        <input type="search" placeholder="SEARCH">
-                    </div>
+                    <form action="/" method="get"></form>
+                        <div class="headSearch-container">
+                            <input type="search" placeholder="SEARCH">
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="headRight">
                 <div class="headRight_container">
-                    <div><a href="/board">EXPLORE</a></div>
-                    <div><a href="/board/insert">CREATE</a></div>
+                    <div><a href="/explore">EXPLORE</a></div>
+                    <div>
+                        <% if(!loginState) { %>
+                        <a href="/login">CREATE </a>
+                        <% } else if(loginState == "okay") { %>
+                        <a href="/board/create">CREATE</a>
+                        <% } %>
+                    </div>
+                    <div><a href="/auction">AUCTION</a></div>
+
+                    <div>
+                        <% if(!loginState) { %>
+                        <a href="/login">MYPAGE</a>
+                        <% } else if(loginState == "okay") { %>
+                        <a href="/mypage">MYPAGE</a>
+                        <% } %>   
+                    </div>
+
                     <div class="mypage-container">
-                        <a>
-                            <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">                            
-                        </a>
+                        <% if(!loginState) { %>
+                        <a href="/login"><img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"></a>
+                        <% } else if(loginState == "okay") { %>
+                        <img onclick="popMypage()" href="#" src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="mypage" id="mypage">
+                        <div class="wrap_mypage">
+                            <div class="profile_img"></div>
+                            <div class="mypage_top"></div>
+                            <div class="mypage_bottom">
+                                <div>vault</div>
+                                <div>$490.51</div>
+
+                                
+                                <form action="/logout" method="POST">
+                                    <button type="submit">로그아웃</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,11 +84,11 @@
                         <div>End soon</div>
                     </div>
                     <div class="nav_bar">price</div> <!-- 8 -->
-                    <div class="nav_category2">      <!-- 8 -->
+                    <div class="nav_category2">      <!-- 6 -->
                         <div>min to max</div>
                     </div>
                     <div class="nav_bar">collection</div> <!-- 8 -->
-                    <div class="nav_category3">          <!-- 15 -->
+                    <div class="nav_category3">          <!-- 17 -->
                         <div>dogesoundclub</div>
                         <div>emates</div>
                         <div>joseondynasty</div>
@@ -65,36 +103,23 @@
                 </div>
             </div>
             <div class="wrap_main">
-                <table border="1">
-                    <tr>
-                      <th>ID</th>
-                      <th>TITLE</th>
-                      <th>PRICE</th>
-                      <th>DESCRIPTION</th>
-                      <th>TAG</th>
-                      <!-- <th>DELETE</th>   
-                      <th>EDIT</th> -->
-                    </tr>
-                    <% data.forEach(function (item, index) { %>
-                    <tr>
-                      
-                      <td><%= item.id %></td>
-                      <!-- <td><a href="/board/page/:id"><%= item.title %></a></td> -->
-                      <td><a href=/board/page/<%= item.id%>><%= item.title %></a></td>
+                <div class="wrap_goods">
+                    <div class="wrap_goods2">
 
+                        <% data.forEach(function (item, index) { %>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area">
+                                <div><a href=/board/page/<%= item.id%>><%= item.title %></a></div>
+                                <div><%= item.price %></div>
+                            </div>
+                        </div>
+                        <% }); %>
 
-
-                      <!-- <td><%= item.title %></td> -->
-                      <td><%= item.price %></td>
-                      <td><%= item.description %></td>
-                      <td><%= item.tag %></td>
-                      <!-- <td><a href="/board/delete/<%= item.id%>">DELETE</a></td>
-                      <td><a href="/board/edit/<%= item.id %>">EDIT</a></td> -->
-                    </tr>
-                    <% }); %>
-                
-                  
-                  </table>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

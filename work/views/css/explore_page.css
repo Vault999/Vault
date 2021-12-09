@@ -1,5 +1,7 @@
 .main{
-    
+    font-family: "FhaBroknGothicBustdaNc-eDpe";
+    color:green;
+    font-size: 1.2em;
 }
 
 .main .wrap_nav {
@@ -138,4 +140,5 @@
     height: 25%;
     background-color: #E5E5E5;
     border-top:  8px solid black;
+    font-size: 15px;
 }

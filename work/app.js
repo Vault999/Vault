@@ -16,7 +16,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3500;
+const port = 3400;
 const host = '127.0.0.1';
 
 app.use(session({
@@ -95,7 +95,7 @@ app.post('/signupinfo', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('login_page');
+  res.render('login_page', {loginState:req.session.loginState, id:req.session.loginedId});
 });
 
 app.post('/login', (req, res) => {
@@ -137,50 +137,39 @@ app.post('/login', (req, res) => {
   
 //======================================================
 
-app.get('/board', function (req, res) {
-  fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
+app.get('/explore', function (req, res) {
+  fs.readFile('./views/explore_page.ejs', 'utf8', function (err, data) {
     client.query('select * from board', function (err, results) {
       if (err) {
         res.send(err)
       } else {
         res.send(ejs.render(data, {
-          data: results
+          data: results, loginState:req.session.loginState, loginedId:req.session.loginedId
         }))
       }
     })
   })
 })
 
-app.get('/test', function (req, res) {
-  fs.readFile('./views/test.ejs', 'utf8', function (err, data) {
-    client.query('select * from board', function (err, results) {
-      if (err) {
-        res.send(err)
-      } else {
-        res.send(ejs.render(data, {
-          data: results
-        }))
-      }
-    })
-  })
-})
+
 
 
 app.get('/board/delete/:id', function (req, res) {
     client.query('delete from board where id=?', [req.params.id], function () {
-      res.redirect('/board')
+      res.redirect('/explore')
     })
   })
 
   
 
-app.get('/board/insert', function (req, res) {
-    fs.readFile('./views/createitem_page.ejs', 'utf8', function (err, data) {
-        res.send(data)
-        })
-    })
+app.get('/board/create', function (req, res) {
+  res.render('createitem_page', {loginState:req.session.loginState, loginedId:req.session.loginedId})  
+  // fs.readFile('./views/createitem_page.ejs', 'utf8', function (err, data) {
+  //   res.send(data)
+  //  });
+});
 
-app.post('/board/insert', function (req, res) {
+app.post('/board/create', function (req, res) {
   
     const body = req.body;
     
@@ -190,7 +179,7 @@ app.post('/board/insert', function (req, res) {
       body.description,
       body.tag
       ], function() {
-        res.redirect('/board');
+        res.redirect('/explore');
       }
     );
 });
@@ -212,7 +201,7 @@ app.post('/board/edit/:id', function (req, res) {
   client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
     body.title, body.price, body.description, body.tag, req.params.id
     ], function () {
-        res.redirect('/board')
+        res.redirect('/explore')
     }
   )
 
@@ -234,8 +223,28 @@ const body = req.body
 client.query('update board SET title=?, price=?, description=?, tag=? where id=?',[
   body.title, body.price, body.description, body.tag, req.params.id
   ], function () {
-      res.redirect('/board')
+      res.redirect('/explore')
   }
 )
 
+})
+
+app.get('/auction', (req, res)=>{
+  res.render('main_page', {loginState:req.session.loginState, loginedId:req.session.loginedId}); 
+});
+
+
+app.get('/mypage', function (req, res) {
+  fs.readFile('./views/mypage.ejs', 'utf8', function (err, data) {
+    client.query('select * from board', function (err, results) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.send(ejs.render(data, {
+          data: results, loginState:req.session.loginState, id:req.session.loginedId}
+        ))
+        }
+      }
+    )
+  })
 })

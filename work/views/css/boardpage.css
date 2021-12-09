@@ -21,6 +21,11 @@
     font-size: 1.3em; 
 }
 
+.mnstruc:nth-child(1) input {
+    background-color: rgb(255, 61, 45);
+    font-size: 1.3em; 
+}
+
 .mnstruc:nth-child(3) { /*create_imgupload*/
     grid-row: 2/4;
     background-color: rgb(255, 255, 255);
@@ -47,7 +52,7 @@
     font-size: 1.5em;
 }
 
-.mnstruc:nth-child(4) input { /*create_nftNum*/
+.mnstruc:nth-child(4) p { /*create_nftNum*/
    width: 300px;
    border: none;
    background-color: rgb(80, 186, 248);
@@ -72,7 +77,7 @@
     font-size: 1.5em;
 }
 
-.mnstruc:nth-child(5) input { /*create_nftPrice*/
+.mnstruc:nth-child(5) p { /*create_nftPrice*/
     width: 300px;
     border: none;
     background-color: rgb(238, 238, 238);
@@ -122,7 +127,7 @@
     font-size: 1.5em;
 }
 
-.mnstruc:nth-child(8) input { /*create_nftDescrip*/
+.mnstruc:nth-child(8) p { /*create_nftDescrip*/
     width: 500px;
     border: none;
     background-color: rgb(238, 238, 238);
@@ -174,7 +179,7 @@
     font-size: 1.3em;
 }
 
-#contenthd3 input {
+#contenthd3 p {
     width: 500px;
     border: none;
     background-color: rgb(80, 186, 248);

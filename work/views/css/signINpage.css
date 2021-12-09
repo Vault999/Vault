@@ -1,5 +1,5 @@
 #signINmain { /*가입페이지 메인설정*/
-    border-bottom: none;
+    border-bottom: 7px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
