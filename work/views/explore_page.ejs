@@ -18,9 +18,11 @@
                     <div class="logo-container">
                         <a href="/"><img src="../assets/logo/toplogo.svg"></a>
                     </div>
-                    <div class="headSearch-container">
-                        <input type="search" placeholder="SEARCH">
-                    </div>
+                    <form action="/" method="get"></form>
+                        <div class="headSearch-container">
+                            <input type="search" placeholder="SEARCH">
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="headRight">
@@ -37,12 +39,12 @@
 
                     <div>
                         <% if(!loginState) { %>
-                        <a href="/login">TEST</a>
+                        <a href="/login">MYPAGE</a>
                         <% } else if(loginState == "okay") { %>
-                        <a href="/test">TEST</a>
+                        <a href="/mypage">MYPAGE</a>
                         <% } %>   
                     </div>
-                    
+
                     <div class="mypage-container">
                         <% if(!loginState) { %>
                         <a href="/login"><img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"></a>
@@ -56,7 +58,8 @@
                             <div class="profile_img"></div>
                             <div class="mypage_top"></div>
                             <div class="mypage_bottom">
-                                
+                                <div>vault</div>
+                                <div>$490.51</div>
 
                                 
                                 <form action="/logout" method="POST">
@@ -65,7 +68,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

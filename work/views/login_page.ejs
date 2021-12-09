@@ -39,9 +39,9 @@
 
                     <div>
                         <% if(!loginState) { %>
-                        <a href="/login">TEST</a>
+                        <a href="/login">MYPAGE</a>
                         <% } else if(loginState == "okay") { %>
-                        <a href="/test">TEST</a>
+                        <a href="/mypage">MYPAGE</a>
                         <% } %>   
                     </div>
 
@@ -58,7 +58,8 @@
                             <div class="profile_img"></div>
                             <div class="mypage_top"></div>
                             <div class="mypage_bottom">
-                                
+                                <div>vault</div>
+                                <div>$490.51</div>
 
                                 
                                 <form action="/logout" method="POST">

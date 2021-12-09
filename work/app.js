@@ -16,7 +16,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3500;
+const port = 3300;
 const host = '127.0.0.1';
 
 app.use(session({
@@ -151,8 +151,8 @@ app.get('/explore', function (req, res) {
   })
 })
 
-app.get('/test', function (req, res) {
-  fs.readFile('./views/test.ejs', 'utf8', function (err, data) {
+app.get('/mypage', function (req, res) {
+  fs.readFile('./views/mypage.ejs', 'utf8', function (err, data) {
     client.query('select * from board', function (err, results) {
       if (err) {
         res.send(err)
