@@ -1,69 +1,208 @@
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; height: 100%; }
-.btn {
-  display: inline-block;
-  padding: 0 5px;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 4px;
-  background: white;
-  border: 1px solid silver;
-  color: crimson;
-  height: 37px;
-  line-height: 37px;
-  vertical-align: top;
-  font-size: 12px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none; /*리스트 기호 지우기*/
+  text-decoration: none; /*밑줄지우기*/
+  background-color: #FFEB3C;
 }
-input, textarea {
-  border-radius: 4px;
-  height: 37px;
-  padding: 10px;
-  border: 1px solid silver;
+
+body {
+  margin: auto;
+  width: 95%;
+  height: 100%;
 }
-.container { width: 100%; height: 100%; }
-@media screen and (min-width: 800px) {
-  .container { width: 800px; margin: 0 auto; }
+
+.header {
+  border-bottom: 7px solid black;
+  height: 12vh;
+  display: flex;
+  font-family: 'WalterTurncoat-Regular.ttf';
 }
-.input-group { margin-bottom: 15px; }
-.input-group label { width: 25%; display: inline-block; }
-.input-group input { width: 70%; }
-#join { float: right; }
-.profile-wrap {
+
+.headLeft {
+  width: 35%;
+  height: 100%;
+  position: relative;
+}
+
+.headLeft_container{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
   width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  margin: 10px 0;
+  position: absolute;
 }
-@media screen and (min-width: 800px) {
-  .profile-wrap { width: 290px; margin-bottom: 0; }
+
+.logo-container{
+  width: 30%;
+  height: 100%;
 }
-.profile {
-  text-align: left;
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid silver;
-  background: yellow;
+
+.logo-container img{
+  width: 100%;
+  height: 100%;
 }
-.user-name, .user-money {
+
+.headSearch-container{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.headSearch-container input{
+  background-color: white;
+  border: solid 3px rgb(206, 204, 204);
+  width: 100%;
+  height: 60%;
+}
+/* IE의 경우 */
+input::-ms-clear,
+input::-ms-reveal{
+  display:none;
+}
+/* 크롬의 경우 */
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+  display:none;
+}
+
+.headRight {
+  width: 65%;
+  height: 100%;
+}
+
+.headRight_container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.mypage-container img{
+  width: 70%;
+}
+
+main {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  border-top: 3px solid white;
+  border-bottom: 7px solid black;
+  height: 75vh;
+  width: 100vw;
+  display: flex;
+}
+
+.footer {
+  border-top: 3px solid white;
+  height: 13vh;
+  display: flex;
+}
+
+.footerLeft {
+  width: 60%;
+  height: 100%;
+  position: relative;
+}
+
+.footerLeft_container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.footerLeft_container div{
+  padding-top: 1%;
+}
+
+.footerLeft_container .vault{
+  width: 35%;
+  height: 100%;
+}
+
+.footerLeft_container .suggestions{
+  width: 22%;
+  height: 100%;
+}
+
+.footerLeft_container .resources{
+  width: 23%;
+  height: 100%;
+}
+
+.footerLeft_container .company{
+  width: 20%;
+  height: 100%;
+}
+
+.footerLeft_container p{
+  font-size: xx-small;
+}
+
+.footerRight {
+  width: 40%;
+  height: 100%;
+  position: relative;
+}
+
+.footerRight_container{
+  padding: 1%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.empty_space {
+  width: 30%;
+}
+.join_community{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+
+.join_community #join_p{
+  font-size: 0.8rem;
   font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.timeline {
-  margin-top: 10px;
+  text-align: left;
+  height: 20%;
   width: 100%;
-  display: inline-block;
-  border-radius: 4px;
-  vertical-align: top;
 }
-@media screen and (min-width: 800px) { .timeline { width: 500px; } }
-#good-list, #good-list th, #good-list td {
-  border: 1px solid black;
-  border-collapse: collapse;
+
+.join_community #join_i{
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
-#good-list img { max-height: 100px; vertical-align: top; }
-#good-img { width: 280px; display: block; }
-.error-message { color: red; font-weight: bold; }
-#join-form, #good-form { padding: 10px; text-align: center; }
-footer { text-align: center; }
+
+#join_i div{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#join_i div img{
+  width: 60%;
+  height: 60%;
+}

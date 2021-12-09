@@ -7,8 +7,6 @@
     <title>explore_pgae</title>
     <link rel="stylesheet" href="../css/explore_pgae.css">
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/mypage.css">
-    <script src="./myPagePop.js"></script>
 </head>
 <body>
     <header>
@@ -18,59 +16,20 @@
                     <div class="logo-container">
                         <a href="/"><img src="../assets/logo/toplogo.svg"></a>
                     </div>
-                    <form action="/" method="get"></form>
-                        <div class="headSearch-container">
-                            <input type="search" placeholder="SEARCH">
-                        </div>
-                    </form>
+                    <div class="headSearch-container">
+                        <input type="search" placeholder="SEARCH">
+                    </div>
                 </div>
             </div>
             <div class="headRight">
                 <div class="headRight_container">
                     <div><a href="/board">EXPLORE</a></div>
-<<<<<<< HEAD
-                    <div>
-                        <% if(!loginState) { %>
-                        <a href="/login">CREATE </a>
-                        <% } else if(loginState == "okay") { %>
-                        <a href="/board/insert">CREATE</a>
-                        <% } %>
-                    </div>
-                    <div><a href="/board">AUCTION</a></div>
-
-                    <div>
-                        <% if(!loginState) { %>
-                        <a href="/login">TEST</a>
-                        <% } else if(loginState == "okay") { %>
-                        <a href="/test">TEST</a>
-                        <% } %>   
-                    </div>
-
-=======
                     <div><a href="/board/insert">CREATE</a></div>
-                    <div><a href="/board">Auctopn</a></div>
->>>>>>> 9fab511949b86a6e65916d6cc8c405403c7f20ce
+                    <div><a href="/board">Auction</a></div>
                     <div class="mypage-container">
-                        <% if(!loginState) { %>
-                        <a href="/login"><img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"></a>
-                        <% } else if(loginState == "okay") { %>
-                        <img onclick="popMypage()" href="#" src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
-                        </div>
-                        <% } %>
-                    </div>
-                    <div class="mypage" id="mypage">
-                        <div class="wrap_mypage">
-                            <div class="profile_img"></div>
-                            <div class="mypage_top"></div>
-                            <div class="mypage_bottom">
-                                
-
-                                
-                                <form action="/logout" method="POST">
-                                    <button type="submit">로그아웃</button>
-                                </form>
-                            </div>
-                        </div>
+                        <a>
+                            <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -121,7 +80,7 @@
                     <tr>
                       
                       <td><%= item.id %></td>
-                      <td><a href=/board/page/<%= item.id%>><%= item.title %></a></td>
+                      <td><%= item.title %></td>
                       <td><%= item.price %></td>
                       <!-- <td><%= item.genre %></td> -->
                       <td><%= item.description %></td>
