@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     font-family: "CherryBomb-Regular";
-    font-size: 1.3em; 
+    font-size: 2em; 
 }
 
 .mnstruc:nth-child(3) { /*create_imgupload*/

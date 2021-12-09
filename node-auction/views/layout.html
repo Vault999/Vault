@@ -5,7 +5,7 @@
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../public/main.css">
+    <link rel="stylesheet" href="/main.css">
   </head>
 
   <body>
@@ -14,7 +14,7 @@
           <div class="headLeft">
               <div class="headLeft_container">
                   <div class="logo-container">
-                      <a href="./main_page.html"><img src="../assets/logo/toplogo.svg"></a>
+                      <a href="./main_page.html"><img src="/assets/logo/toplogo.svg"></a>
                   </div>
                   <div class="headSearch-container">
                       <input type="search" placeholder="SEARCH">
@@ -28,7 +28,7 @@
                   <div>Auction</div>
                   <div class="mypage-container">
                       <a>
-                          <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg face,smiley,emoji,smile dizzy,.svg">
+                          <img src="/assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
                       </a>
                   </div>
               </div>
@@ -36,8 +36,7 @@
       </div>
   </header>
   <main>
-    <div class="container">
-      <div class="profile-wrap">
+    <div class="main">
         <div class="profile">
           {% if user and user.id %}
             <div class="user-name">안녕하세요 {{user.nick}}님</div>
@@ -60,23 +59,22 @@
               <button id="login" class="btn" type="submit">로그인</button>
             </form>
           {% endif %}
+          {% block good %}
+          {% endblock %}
         </div>
-  </main>
-        {% block good %}
+        {% block content %}
         {% endblock %}
-      </div>
-      {% block content %}
-      {% endblock %}
+      <script>
+        window.onload = () => {
+          if (new URL(location.href).searchParams.get('loginError')) {
+            alert(new URL(location.href).searchParams.get('loginError'));
+          }
+        };
+      </script>
     </div>
-    <script>
-      window.onload = () => {
-        if (new URL(location.href).searchParams.get('loginError')) {
-          alert(new URL(location.href).searchParams.get('loginError'));
-        }
-      };
-    </script>
-            <footer>
-              <div class="footer">
+  </main>
+      <footer>
+        <div class="footer">
                   <div class="footerLeft">
                       <div class="footerLeft_container">
                           <div class="vault">
@@ -116,15 +114,15 @@
                           <div class="join_community">
                               <div id="join_p">Join THE COMMUNITY</div>
                               <div id="join_i">
-                                  <div><img src="/front/assets/icons/Twitter - Negative.svg"></div>
-                                  <div><img src="/front/assets/icons/Discord - Negative.svg"></div>
-                                  <div><img src="/front/assets/icons/Instagram - Negative.svg"></div>
-                                  <div><img src="/front/assets/icons/Telegram - Negative.svg"></div>
+                                  <div><img src="/assets/icons/Twitter - Negative.svg"></div>
+                                  <div><img src="/assets/icons/Discord - Negative.svg"></div>
+                                  <div><img src="/assets/icons/Instagram - Negative.svg"></div>
+                                  <div><img src="/assets/icons/Telegram - Negative.svg"></div>
                               </div>
                           </div>
                       </div>
                   </div>
-              </div>
-          </footer>
+        </div>
+    </footer>
   </body>
 </html>
