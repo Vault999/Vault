@@ -138,13 +138,13 @@ app.post('/login', (req, res) => {
 //======================================================
 
 app.get('/board', function (req, res) {
-  fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
+  fs.readFile('./views/explore_page.ejs', 'utf8', function (err, data) {
     client.query('select * from board', function (err, results) {
       if (err) {
         res.send(err)
       } else {
         res.send(ejs.render(data, {
-          data: results
+          data: results, loginState:req.session.loginState, loginedId:req.session.loginedId
         }))
       }
     })
