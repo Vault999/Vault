@@ -162,7 +162,7 @@ app.get('/board/delete/:id', function (req, res) {
 
   
 
-app.get('/board/insert', function (req, res) {
+app.get('/board/create', function (req, res) {
   res.render('createitem_page', {loginState:req.session.loginState, loginedId:req.session.loginedId})  
   // fs.readFile('./views/createitem_page.ejs', 'utf8', function (err, data) {
   //   res.send(data)
