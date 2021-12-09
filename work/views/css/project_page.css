@@ -17,7 +17,7 @@
 }
 
 .dogeclubhd { /*도지클럽(1행)*/
-    flex: 1;
+    flex: 2;
     display: flex;
 }
 
@@ -25,8 +25,8 @@
     background-color: rgb(80, 186, 248);
     border: 5px solid black;
     flex: 9;
-    color: white;
-    /* font-family:Arial, Helvetica, sans-serif; */
+    color: black;
+    font-family:"JandaCurlygirlPop-5r4V";
     font-size: 2em;
     text-align: center;
 }
@@ -46,13 +46,13 @@
     background-color: rgb(238, 238, 238);
     border-left: 5px solid black;
     flex: 1;
-    /* font-family:Arial, Helvetica, sans-serif; */
+    font-family:"WendyOne-Regular";
     font-size: 1em;
     text-align: center;
 }
 
 .dogecontent2 {  /*도지클럽(3행)*/
-    flex: 1;
+    flex: 5;
     display: flex;
 }
 
@@ -61,7 +61,7 @@
     border: 5px solid black;
     flex: 9;
     color: white;
-    /* font-family:Arial, Helvetica, sans-serif; */
+    font-family: "WalterTurncoat-Regular";
     font-size: 1.2em;
     text-align: center;
 }

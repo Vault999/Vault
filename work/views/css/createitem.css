@@ -17,7 +17,7 @@
     border: 5px solid black;
     display: flex;
     align-items: center;
-    /* font-family:Arial, Helvetica, sans-serif; */
+    font-family: "FhaBroknGothicBustdaNc-eDpe";
     font-size: 1.3em; 
 }
 
@@ -43,8 +43,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-family:Arial, Helvetica, sans-serif; */
-    font-size: 1em;
+    font-family: "JandaCurlygirlPop-5r4V";
+    font-size: 1.5em;
 }
 
 .mnstruc:nth-child(4) input { /*create_nftNum*/
@@ -60,19 +60,16 @@
     border: none;
     background-color: rgb(80, 186, 248);
     font-size: 20px;
-  }
+}
  
-
-
-
 .mnstruc:nth-child(5) { /*create_nftPrice*/
     background-color: rgb(238, 238, 238);
     border-right: 5px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-family:Arial, Helvetica, sans-serif; */
-    font-size: 1em;
+    font-family: "JandaCurlygirlPop-5r4V"; 
+    font-size: 1.5em;
 }
 
 .mnstruc:nth-child(5) input { /*create_nftPrice*/
@@ -100,8 +97,8 @@
     border: 5px solid black;
     display: flex;
     align-items: center;
-    /* font-family:Arial, Helvetica, sans-serif; */
-    font-size: 1.3em;
+    font-family: "FhaBroknGothicBustdaNc-eDpe";
+    font-size: 2em;
 }
 
 /* .mnstruc:nth-child(7) input {
@@ -120,8 +117,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-family:Arial, Helvetica, sans-serif; */
-    font-size: 1em;
+    font-family:"JandaCurlygirlPop-5r4V";
+    color:black;
+    font-size: 1.5em;
 }
 
 .mnstruc:nth-child(8) input { /*create_nftDescrip*/
