@@ -137,7 +137,7 @@ app.post('/login', (req, res) => {
   
 //======================================================
 
-app.get('/board', function (req, res) {
+app.get('/explore', function (req, res) {
   fs.readFile('./views/explore_page.ejs', 'utf8', function (err, data) {
     client.query('select * from board', function (err, results) {
       if (err) {
@@ -169,7 +169,7 @@ app.get('/board/insert', function (req, res) {
   //  });
 });
 
-app.post('/board/insert', function (req, res) {
+app.post('/board/create', function (req, res) {
   
     const body = req.body;
     
