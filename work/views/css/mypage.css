@@ -54,11 +54,35 @@ main {
     justify-content: center;
 }
 
-.profile_top_bottom div {
+.empt-VAULT {
+    width: 100%;
+    flex: 1;
+    background-color: #EEEEEE;
+}
+
+.vault-inpo {
+    width: 100%;
+    flex: 1;
+    background-color: #EEEEEE;
+}
+/* .profile_top_bottom div {
     box-sizing: border-box;
     background-color: #EEEEEE;
     text-align: center;
     padding-top: 10%;
+} */
+
+.wrap-vault-inpo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #EEEEEE;
+}
+.wrap-vault-inpo div{
+    font-size: 1.4em;
+    background-color: #EEEEEE;
 }
 
 .profile_bottom{
@@ -87,9 +111,14 @@ main {
     border-bottom: 8px black solid;
 }
 
+.middle_space div{
+    background-color: #EEEEEE;
+}
+
 .middle_space > div{
     display: flex;
     justify-content: space-between;
+    background-color: #EEEEEE;
 }
 
 .bottom_line {
