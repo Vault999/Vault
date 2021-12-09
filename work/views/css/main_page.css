@@ -1,5 +1,5 @@
 .main{
-    font-family: "FhaBroknGothicBustdaNc-eDpe";
+    font-family: 'CherryBomb-Regular';
     font-size: 1.4em;
 }
 
@@ -44,7 +44,10 @@
     height: 60%;
     background: #55B8FF;
     border-left: 8px solid black;
-    border-bottom: 8px solid black;    
+    border-bottom: 8px solid black;  
+    background-image: url("../assets/images/mainimage.jpg");  
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .wrap01_bottom{
@@ -124,6 +127,9 @@
     border-top: 8px solid black;    
     border-bottom: 8px solid black;
     border-right: 8px solid black;    
+    background-image: url("../assets/images/mainimage.jpg");  
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .wrap03_bottom {
@@ -163,11 +169,10 @@
     border: 8px solid black;
     width: 90%;
     height: 100%;
-    font-family: 'FhaBroknGothicBustdaNc-eDpe';
-    font-size: 1.3em;
-    padding: 1%;
+    font-family: 'CherryBomb-Regular';
+    font-size: 0.8em;
+    /* padding: 1%; */
     text-align: center;
-    background-image: url("../assets/images/creategroup1.png");
     background-repeat: no-repeat;
 }
 
@@ -194,11 +199,22 @@
     height: 100%;
     border-right: 8px solid black;
     border-left: 8px solid black;
-    background-image: url("../assets/images/creategroup1.png");
     background-repeat: no-repeat;
 }
 
 .creator_list_right{
     width: 10%;
     height: 100%;
+}
+
+#list1 {
+    background-image: url("../assets/images/creategroup1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#list2 {
+    background-image: url("../assets/images/creategroup1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
