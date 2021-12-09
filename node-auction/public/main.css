@@ -319,42 +319,132 @@ input:focus {outline:none;}
 }
 
 .good-list {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-spacing: 0;
+}
+
+.good-list th{
+  width: 12vw;
+  height: 10vh;
+  border-bottom: 7px solid black;
+}
+
+.good-list td{
+  align-content: center;
+  text-align: center;
+}
+
+.good-list img{
   width: 100%;
   height: 100%;
 }
 
-.goods-name {
-  background-color: wheat;
-  width: 20%;
-  height: 100%;
+.good-list2 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-spacing: 0;
 }
 
-.goods-img {
-  background-color: violet;
-  width: 20%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.goods-sprice {
-  background-color: yellow;
-  width: 20%;
-  height: 100%;
-}
-
-.goods-deadline {
-  background-color: #229ED9;
-  width: 20%;
-  height: 100%;
-}
-
-.goods-enter {
-  background-color: #FF4228;
-  width: 20%;
-  height: 100%;
+.good-list2 th{
+  width: 20vw;
+  height: 10vh;
+  border-bottom: 7px solid black;
 }
 
 /* main-page *//* main-page *//* main-page *//* main-page *//* main-page *//* main-page */
+
+/* auction-timeline *//* auction-timeline *//* auction-timeline *//* auction-timeline */
+
+
+
+/* auction-timeline *//* auction-timeline *//* auction-timeline *//* auction-timeline */
+
+
+/* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline */
+
+.wrap-good-timeline {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.good-timeline {
+  background-color: #229ED9;
+  padding: 5%;
+  margin: auto;
+  border: 7px solid black;
+  width: 40%;
+  height: 60%;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#good-form {
+  background-color: #229ED9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.good-input-group {
+  margin: 1%;
+  padding: 1%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #EEEEEE;
+  border: 7px solid black;
+}
+
+.good-input-group label {
+  text-align: center;
+  height: 100%;
+  width: 30%;
+  background-color: #EEEEEE;
+  border-right: 7px solid black;
+}
+
+.good-input-group input {
+  height: 100%;
+  width: 70%;
+  background-color: white;
+  border: none;
+}
+
+#good-photo {
+  background-color: #EEEEEE;
+}
+
+.wrap-good-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #EEEEEE;
+  background-color: #229ED9;
+
+}
+
+#good-btn {
+  width: 10vw;
+  margin: 5%;
+  padding: 1%;
+  background-color: #FF4228;
+  border: 7px solid black;
+  color: white;
+  padding: 1%;
+  font-weight: bold;
+}
+
+/* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline */
 
 footer {
   border-top: 3px solid white;
