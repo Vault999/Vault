@@ -7,8 +7,6 @@
     <title>explore_pgae</title>
     <link rel="stylesheet" href="../css/explore_pgae.css">
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/mypage.css">
-    <script src="./myPagePop.js"></script>
 </head>
 <body>
     <header>
@@ -16,57 +14,22 @@
             <div class="headLeft">
                 <div class="headLeft_container">
                     <div class="logo-container">
-                        <a href="/"><img src="../assets/logo/toplogo.svg"></a>
+                        <img src="../assets/logo/toplogo.svg">
                     </div>
-                    <form action="/" method="get"></form>
-                        <div class="headSearch-container">
-                            <input type="search" placeholder="SEARCH">
-                        </div>
-                    </form>
+                    <div class="headSearch-container">
+                        <input type="search" placeholder="SEARCH" id="searching" onfocus="this.placeholder=''" onblur="this.placeholder='SEARCH'">
+                    </div>
                 </div>
             </div>
             <div class="headRight">
                 <div class="headRight_container">
-                    <div><a href="/board">EXPLORE</a></div>
-                    <div>
-                        <% if(!loginState) { %>
-                        <a href="/login">CREATE </a>
-                        <% } else if(loginState == "okay") { %>
-                        <a href="/board/insert">CREATE</a>
-                        <% } %>
-                    </div>
-                    <div><a href="/board">AUCTION</a></div>
-
-                    <div>
-                        <% if(!loginState) { %>
-                        <a href="/login">MYPAGE</a>
-                        <% } else if(loginState == "okay") { %>
-                        <a href="/mypage">MYPAGE</a>
-                        <% } %>   
-                    </div>
-
+                    <div>EXPLORE</div>
+                    <div>CREATE</div>
+                    <div>Auction</div>
                     <div class="mypage-container">
-                        <% if(!loginState) { %>
-                        <a href="/login"><img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg"></a>
-                        <% } else if(loginState == "okay") { %>
-                        <img onclick="popMypage()" href="#" src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
-                        </div>
-                        <% } %>
-                    </div>
-                    <div class="mypage" id="mypage">
-                        <div class="wrap_mypage">
-                            <div class="profile_img"></div>
-                            <div class="mypage_top"></div>
-                            <div class="mypage_bottom">
-                                <div>vault</div>
-                                <div>$490.51</div>
-
-                                
-                                <form action="/logout" method="POST">
-                                    <button type="submit">로그아웃</button>
-                                </form>
-                            </div>
-                        </div>
+                        <a>
+                            <img src="../assets/icons/Emoji/happy,smile,happy face,smiley,emoji,smile dizzy,.svg">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -84,11 +47,11 @@
                         <div>End soon</div>
                     </div>
                     <div class="nav_bar">price</div> <!-- 8 -->
-                    <div class="nav_category2">      <!-- 8 -->
+                    <div class="nav_category2">      <!-- 6 -->
                         <div>min to max</div>
                     </div>
                     <div class="nav_bar">collection</div> <!-- 8 -->
-                    <div class="nav_category3">          <!-- 15 -->
+                    <div class="nav_category3">          <!-- 17 -->
                         <div>dogesoundclub</div>
                         <div>emates</div>
                         <div>joseondynasty</div>
@@ -103,30 +66,76 @@
                 </div>
             </div>
             <div class="wrap_main">
-                <!-- <table border="1"> -->
-                    <!-- <tr>
-                      <th>ID</th>
-                      <th>TITLE</th>
-                      <th>PRICE</th>
-                      <th>DESCRIPTION</th>
-                      <th>TAG</th>
-                    </tr> -->
-
-                    <% data.forEach(function (item, index) { %>
-                    <div>                  
-                      <!-- <div><%= item.id %></div> -->
-                      <div style="border: 10px solid black  ">asdf</div>
-                      <div style="border: 10px solid black;">
-                      <div><a href=/board/page/<%= item.id%>><%= item.title %></a></div>
-                      <div><%= item.price %></div>
-                      </div>
-                      <!-- <div><%= item.description %></div>
-                      <div><%= item.tag %></div> -->
-                    </div>   
-                    <% }); %>
-                
-                  
-                  <!-- </table> -->
+                <div class="wrap_goods">
+                    <div class="wrap_goods2">
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
