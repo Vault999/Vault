@@ -16,7 +16,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3400;
+const port = 3800;
 const host = '127.0.0.1';
 
 app.use(session({
@@ -78,6 +78,10 @@ app.post('/signupinfo', (req, res) => {
       client.query(signIdChkQuery, (err, result, fields) => {
         if(err) throw err;
 
+        if( `${req.body.user_pw}` != `${req.body.user_repw}`) {
+          return res.send('<script>alert("비밀번호 불일치");window.location.href="/signup"</script>')
+        }
+        
         if(result[0]) {
           // client.end();
           res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세요"); window.location.href = "/signup"; </script>');
