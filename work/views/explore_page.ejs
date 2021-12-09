@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>explore_pgae</title>
-    <link rel="stylesheet" href="../css/explore_pgae.css">
+    <link rel="stylesheet" href="../css/explore_page.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/mypage.css">
     <script src="./myPagePop.js"></script>
-
 </head>
 <body>
     <header>
@@ -31,7 +30,7 @@
                         <% if(!loginState) { %>
                         <a href="/login">CREATE </a>
                         <% } else if(loginState == "okay") { %>
-                        <a href="/board/insert">CREATE</a>
+                        <a href="/board/create">CREATE</a>
                         <% } %>
                     </div>
                     <div><a href="/board">AUCTION</a></div>
@@ -83,11 +82,11 @@
                         <div>End soon</div>
                     </div>
                     <div class="nav_bar">price</div> <!-- 8 -->
-                    <div class="nav_category2">      <!-- 8 -->
+                    <div class="nav_category2">      <!-- 6 -->
                         <div>min to max</div>
                     </div>
                     <div class="nav_bar">collection</div> <!-- 8 -->
-                    <div class="nav_category3">          <!-- 15 -->
+                    <div class="nav_category3">          <!-- 17 -->
                         <div>dogesoundclub</div>
                         <div>emates</div>
                         <div>joseondynasty</div>
@@ -102,30 +101,23 @@
                 </div>
             </div>
             <div class="wrap_main">
-                <!-- <table border="1"> -->
-                    <!-- <tr>
-                      <th>ID</th>
-                      <th>TITLE</th>
-                      <th>PRICE</th>
-                      <th>DESCRIPTION</th>
-                      <th>TAG</th>
-                    </tr> -->
+                <div class="wrap_goods">
+                    <div class="wrap_goods2">
 
-                    <% data.forEach(function (item, index) { %>
-                    <div>                  
-                      <!-- <div><%= item.id %></div> -->
-                      <div style="border: 10px solid black  ">asdf</div>
-                      <div style="border: 10px solid black;">
-                      <div><a href=/board/page/<%= item.id%>><%= item.title %></a></div>
-                      <div><%= item.price %></div>
-                      </div>
-                      <!-- <div><%= item.description %></div>
-                      <div><%= item.tag %></div> -->
-                    </div>   
-                    <% }); %>
-                
-                  
-                  <!-- </table> -->
+                        <% data.forEach(function (item, index) { %>
+                        <div class="goods">
+                            <div class="img_area">
+                                <img src="/work/views/assets/images/man.png">
+                            </div>
+                            <div class="info_area">
+                                <div><a href=/board/page/<%= item.id%>><%= item.title %></a></div>
+                                <div><%= item.price %></div>
+                            </div>
+                        </div>
+                        <% }); %>
+
+                    </div>
+                </div>
             </div>
         </div>
     </main>
