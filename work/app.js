@@ -63,7 +63,7 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/signup', (req,res) => {
-  res.render('signup_page');
+  res.render('signup_page', {loginState:req.session.loginState, id:req.session.loginedId});
 });
 
 app.post('/signupinfo', (req, res) => {
