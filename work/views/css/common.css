@@ -23,6 +23,11 @@
     src: url("../assets/fonts/Smooch-Regular.ttf");
 }
 
+@font-face {
+    font-family: "CherryBomb-Regular"; /*title*/
+    src: url("../assets/fonts/CherryBomb-Regular.ttf");
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -45,6 +50,8 @@ body {
     font-family: 'WalterTurncoat-Regular.ttf';
     font-size: 1.5em;
     color: red;
+    justify-content: space-between;
+    
 }
 
 .headLeft {
@@ -127,7 +134,7 @@ input::-webkit-search-results-decoration{
     height: 100%;
     width: 100%;
     position: absolute;
-    font-family: "Smooch-Regular";
+    font-family: "CherryBomb-Regular";
     font-size: 0.8em;
     color: gray;
 }
