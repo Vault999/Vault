@@ -63,11 +63,7 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/signup', (req,res) => {
-<<<<<<< HEAD
-  res.render('signup_page', {loginState:req.session.loginState, loginedId:req.session.loginedId});
-=======
   res.render('signup_page', {loginState:req.session.loginState, id:req.session.loginedId});
->>>>>>> bca891934750824124c786bbd684ea36a73c9412
 });
 
 app.post('/signupinfo', (req, res) => {
