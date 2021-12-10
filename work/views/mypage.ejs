@@ -63,7 +63,7 @@
                             </div>
                             <div class="mypage_bottom">
                                 <div class="mypage_name">
-                                    <div>vault</div>
+                                    <div><%= loginedId %></div>
                                     <div>490.51</div>
                                 </div>
                             </div>
@@ -123,13 +123,15 @@
                         <% data.forEach(function (item, index) { %>
                         <div class="goods">
                             <div class="img_area">
-                                <img src="/work/views/assets/images/man.png">
+                                <img src="../views/assets/images/pofile.png">
                             </div>
                             <div class="info_area">
                                 <div><a href=/board/page/<%= item.id%>><%= item.title %></a></div>
-                                <div><%= item.price %></div>
-                                <div><a href="/board/delete/<%= item.id%>">DELETE</a></div>
-                                <div><a href="/board/edit/<%= item.id%>">EDIT</a></div>
+                                <div><a href=/board/page/<%= item.id%>><%= item.price %></a></div>
+                                <div class="delete_edit">
+                                    <div><a href="/board/delete/<%= item.id%>">DELETE</a></div>
+                                    <div><a href="/board/edit/<%= item.id%>">EDIT</a></div>
+                                </div>
                             </div>
                         </div>
                         <% }); %>

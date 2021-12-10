@@ -16,7 +16,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3800;
+const port = 3500;
 const host = '127.0.0.1';
 
 app.use(session({
@@ -63,7 +63,7 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/signup', (req,res) => {
-  res.render('signup_page', {loginState:req.session.loginState, id:req.session.loginedId});
+  res.render('signup_page', {loginState:req.session.loginState, loginedId:req.session.loginedId});
 });
 
 app.post('/signupinfo', (req, res) => {
@@ -99,7 +99,7 @@ app.post('/signupinfo', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('login_page', {loginState:req.session.loginState, id:req.session.loginedId});
+  res.render('login_page', {loginState:req.session.loginState, loginedId:req.session.loginedId});
 });
 
 app.post('/login', (req, res) => {
@@ -127,7 +127,7 @@ app.post('/login', (req, res) => {
             req.session.loginedId = result[0].user_id;
             // client.end();
             // res.redirect('/');
-            res.render("main_page", {loginState:req.session.loginState, id:req.session.loginedId})
+            res.render("main_page", {loginState:req.session.loginState, loginedId:req.session.loginedId})
           } else {
             // client.end();
             res.send("<script>alert('틀린비밀번호 입니다.');window.location.href='/login';</script>");
@@ -245,7 +245,7 @@ app.get('/mypage', function (req, res) {
         res.send(err)
       } else {
         res.send(ejs.render(data, {
-          data: results, loginState:req.session.loginState, id:req.session.loginedId}
+          data: results, loginState:req.session.loginState, loginedId:req.session.loginedId}
         ))
         }
       }

@@ -36,6 +36,17 @@
     text-decoration: none; /*밑줄지우기*/
     background-color: rgb(255, 239, 59);
 }
+a:link{
+    color: black;
+}
+
+a:visited{
+    color: black;
+}
+
+a:active{
+    color: red
+}
 
 body {
     margin: auto;
