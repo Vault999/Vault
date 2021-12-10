@@ -449,6 +449,56 @@ input:focus {outline:none;}
   flex-direction: row;
 }
 
+#auction-timeline {
+  margin: auto;
+  width: 90%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  background-color: #229ED9;
+  border:  7px solid black;
+}
+
+#bid {
+  padding: 2%;
+  width: 100%;
+  height: 80%;
+  background-color: #EEEEEE;
+}
+
+#bid-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 2%;
+  width: 100%;
+  height: 20%;
+  background-color: #229ED9;
+  border-top:  7px solid black;
+}
+
+#bid-form input{
+  border:  7px solid black;
+}
+
+#bid-msg {
+  width: 60%;
+}
+
+#bid-form button{
+  font-weight: bold;
+  font-size: 1em;
+  width: 10%;
+  height: 100%;
+  border:  7px solid black;
+  background-color: #FF4228;
+
+}
+
+#bid div, span, strong{
+  background-color: #EEEEEE;
+}
+
 .good-name {
   display: none;
 }
