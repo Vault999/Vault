@@ -358,12 +358,6 @@ input:focus {outline:none;}
 
 /* main-page *//* main-page *//* main-page *//* main-page *//* main-page *//* main-page */
 
-/* auction-timeline *//* auction-timeline *//* auction-timeline *//* auction-timeline */
-
-
-
-/* auction-timeline *//* auction-timeline *//* auction-timeline *//* auction-timeline */
-
 
 /* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline */
 
@@ -445,6 +439,37 @@ input:focus {outline:none;}
 }
 
 /* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline *//* good-timeline */
+
+/* bid_timeline *//* bid_timeline *//* bid_timeline *//* bid_timeline *//* bid_timeline *//* bid_timeline */
+
+.bid_timeline {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.good-name {
+  display: none;
+}
+
+.good-Owner-nick {
+  display: none;
+}
+
+.good-price {
+  display: none;
+}
+
+.good-createdAt {
+  display: none;
+}
+
+.good-img {
+  display: none;
+}
+
+/* bid_timeline *//* bid_timeline *//* bid_timeline *//* bid_timeline *//* bid_timeline *//* bid_timeline */
 
 footer {
   border-top: 3px solid white;
