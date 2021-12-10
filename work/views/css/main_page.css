@@ -57,11 +57,11 @@
     border-left: 8px solid black;
     border-bottom: 8px solid black;
     padding: 4%;
-    font-size: 2em;
-    text-align: right;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: flex-end;     
+    justify-content: flex-end;    */
+    font-size: 1.5em;
+    text-align: center;   
 }
 
 .main_left_02{
@@ -96,10 +96,12 @@
     border-left: 8px solid black;
     border-bottom: 8px solid black;
     border-right: 8px solid black;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-self: space-between;
+    justify-self: space-between; */
     padding: 5%;
+    font-size: 1.5em;
+    text-align: center; 
 }
 
 #authorname {

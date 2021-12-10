@@ -16,7 +16,7 @@ const client = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-const port = 3500;
+const port = 3200;
 const host = '127.0.0.1';
 
 app.use(session({
