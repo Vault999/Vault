@@ -64,7 +64,7 @@
     text-align: center;   
 }
 
-#clock, #apm, #clockimg {
+#remainingtime, #clockimg {
     background: #E5E5E5;
 }
 
