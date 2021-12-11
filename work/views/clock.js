@@ -1,6 +1,6 @@
-var Target = document.getElementById("clock");
-var Target_apm = document.getElementById("apm");
-function clock() {
+window.onload = function clock() {
+    var Target = document.getElementById("clock"); //외부js파일생성시 window.onload해야 id인식가능
+    var Target_apm = document.getElementById("apm");
     var time = new Date();
     var hours = time.getHours();
     var minutes = time.getMinutes();
