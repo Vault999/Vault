@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/main_page.css">
     <link rel="stylesheet" href="../css/mypage.css">
     <script src="./myPagePop.js"></script>
-    <script src="./clock.js"></script>
+    <script src="./countdown.js"></script>
 </head>
 <body>
     <header>
@@ -85,8 +85,7 @@
                             <div class="wrap01_top"></div>
                             <div class="wrap01_middle"></div>
                             <div class="wrap01_bottom">
-                                <img src="assets/icons/clock.svg" id="clockimg">&nbsp;<span id="clock" style="color:black; font-size: 0.5em;">clock</span>
-                                <span id="apm" style="color:black; font-size: 0.5em;">ampm</span>
+                                <img src="assets/icons/clock.svg" id="clockimg">&nbsp;<span id="remainingtime" style="color:black; font-size: 0.5em;"></span>
                             </div>
                         </div>
                     </div>
@@ -186,26 +185,3 @@
     </footer>
 </body>
 </html>
-<script>
-var Target = document.getElementById("clock");
-var Target_apm = document.getElementById("apm");
-function clock() {
-    var time = new Date();
-    var hours = time.getHours();
-    var minutes = time.getMinutes();
-    var seconds = time.getSeconds();
-    var AmPm ="AM";
-    if(hours > 12){   
-        var AmPm ="PM";
-        hours %= 12;
-    }
-
-    Target.innerText = 
-    `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-
-    Target_apm.innerText = `${AmPm}`;
-
-}
-clock();
-setInterval(clock, 1000); // 1초마다 실행
-</script>
