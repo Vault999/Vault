@@ -31,5 +31,5 @@ const countDownTimer = function (id, date) {
 var dateObj = new Date(); 
 dateObj.setDate(dateObj.getDate() + 1);
 
-countDownTimer('remainingtime', '12/13/2021 00:00 AM'); // 시간을 표시하려면 01:00 AM과 같은 형식을 사용
+countDownTimer('remainingtime', '12/15/2021 00:00 AM'); // 시간을 표시하려면 01:00 AM과 같은 형식을 사용
 

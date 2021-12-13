@@ -1,8 +1,13 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "thdrn48",
     "database": "nodeauction",
+=======
+    "password": "ruddlf1234",
+    "database": "vault999",
+>>>>>>> 9788e1cb00f2b1298c414102bf7174a6c50c61ee
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
