@@ -298,6 +298,17 @@ input:focus {outline:none;}
   font-weight: bold;
 }
 
+#email {
+  padding: 1%;
+  width: 90%;
+  height: 3vh;
+}
+
+#password {
+  padding: 1%;
+  width: 90%;
+  height: 3vh;
+}
 /* join page *//* join page *//* join page *//* join page *//* join page *//* join page */
 
 
