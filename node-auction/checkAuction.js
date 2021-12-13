@@ -9,7 +9,7 @@ module.exports = async () => {
     yesterday.setDate(yesterday.getDate() - 1); // 어제 시간
     const targets = await Good.findAll({
       where: {
-        UserId,
+        UserId: null,
         SoldId: null,
         createdAt: { [Op.lte]: yesterday },
       },

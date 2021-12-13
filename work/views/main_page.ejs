@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/main_page.css">
     <link rel="stylesheet" href="../css/mypage.css">
     <script src="./myPagePop.js"></script>
+    <script src="./countdown.js"></script>
 </head>
 <body>
     <header>
@@ -20,7 +21,9 @@
                     </div>
                     <form action="/" method="get"></form>
                         <div class="headSearch-container">
-                            <input type="search" placeholder="SEARCH">
+                            <!-- <form action="/explore" method="POST"> -->
+                                <input type="search" placeholder="SEARCH" id="searching" onfocus="this.placeholder=''" onblur="this.placeholder='SEARCH'">
+                            <!-- </form> -->
                         </div>
                     </form>
                 </div>
@@ -81,7 +84,9 @@
                         <div class="wrap01">
                             <div class="wrap01_top"></div>
                             <div class="wrap01_middle"></div>
-                            <div class="wrap01_bottom">$ 621.5</div>
+                            <div class="wrap01_bottom">
+                                <img src="assets/icons/clock.svg" id="clockimg">&nbsp;<span id="remainingtime" style="color:black; font-size: 0.5em;"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="main_left_02">

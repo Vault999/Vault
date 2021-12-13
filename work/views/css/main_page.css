@@ -45,7 +45,7 @@
     background: #55B8FF;
     border-left: 8px solid black;
     border-bottom: 8px solid black;  
-    background-image: url("../assets/images/mainimage.jpg");  
+    background-image: url("../assets/images/RTFKT\ CLONE\ X\ +\ Murakami.png");  
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -57,11 +57,15 @@
     border-left: 8px solid black;
     border-bottom: 8px solid black;
     padding: 4%;
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: flex-end;    */
+    justify-content: flex-end;   
     font-size: 1.5em;
     text-align: center;   
+}
+
+#remainingtime, #clockimg {
+    background: #E5E5E5;
 }
 
 .main_left_02{
